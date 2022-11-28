@@ -12,7 +12,7 @@ requirements = [
     "cached-property>=1.5; python_version < '3.8'",
     "eip712_structs",
     "packaging",
-    "py-evm==0.5.0a3",
+    "py-evm==0.6.1a1",
     "pysha3>=1.0.0",
     "requests>=2",
     "typing-extensions>=3.10; python_version < '3.8'",
