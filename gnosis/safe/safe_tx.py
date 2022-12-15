@@ -91,7 +91,7 @@ class SafeTx:
         self._safe_nonce = safe_nonce and int(safe_nonce)
         self._safe_version = safe_version
         #self._chain_id = chain_id and int(chain_id)
-        self._chain_id = 1 if chain_id == 1666000000 else int(chain_id)
+        self._chain_id = 1 if chain_id and int(chain_id) == 1666600000 else int(chain_id)
 
         self.tx: Optional[TxParams] = None  # If executed, `tx` is set
         self.tx_hash: Optional[bytes] = None  # If executed, `tx_hash` is set
