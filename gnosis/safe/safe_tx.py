@@ -90,8 +90,8 @@ class SafeTx:
         self.signatures = signatures or b""
         self._safe_nonce = safe_nonce and int(safe_nonce)
         self._safe_version = safe_version
-        #self._chain_id = chain_id and int(chain_id)
-        self._chain_id = 1 if chain_id and int(chain_id) == 1666600000 else int(chain_id)
+        self._chain_id = chain_id and int(chain_id)
+        #self._chain_id = 1 if chain_id and int(chain_id) == 1666600000 else int(chain_id)
 
         self.tx: Optional[TxParams] = None  # If executed, `tx` is set
         self.tx_hash: Optional[bytes] = None  # If executed, `tx_hash` is set
@@ -115,9 +115,9 @@ class SafeTx:
     @cached_property
     def chain_id(self) -> int:
         if self._chain_id is not None:
-            return self._chain_id
+            return 1 if self._chain_id == 1666600000 else self._chain_id
         else:
-            return self.ethereum_client.get_chain_id()
+            return 1 if self.ethereum_client.get_chain_id() == 1666600000 else self.ethereum_client.get_chain_id()
 
     @cached_property
     def safe_nonce(self) -> str:
