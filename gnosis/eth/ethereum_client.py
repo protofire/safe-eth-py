@@ -688,6 +688,10 @@ class Erc20Manager(EthereumClientManager):
 
         all_events: List[LogReceipt] = []
         # Do the request to `eth_getLogs`
+        logger.debug("Parameters:")
+        logger.debug(parameters)
+        logger.debug("all_topics:")
+        logger.debug(all_topics)
         for topics in all_topics:
             parameters["topics"] = topics
             logger.debug("Parameters:")
