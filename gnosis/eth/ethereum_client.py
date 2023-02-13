@@ -669,8 +669,6 @@ class Erc20Manager(EthereumClientManager):
         """
         logger.info("Getting events for erc20 and erc721 transfers")
         topic_0 = self.TRANSFER_TOPIC.hex()
-        logger.warning("topic_0:")
-        logger.error(topic_0)
         if addresses:
             addresses_encoded = [
                 HexBytes(eth_abi.encode_single("address", address)).hex()
@@ -679,7 +677,7 @@ class Erc20Manager(EthereumClientManager):
             # Topics for transfer `to` and `from` an address
             all_topics = [
                 [topic_0, addresses_encoded],  # Topics from
-                [topic_0, None, addresses_encoded],  # Topics to
+                [topic_0, [], addresses_encoded],  # Topics to
             ]
         else:
             all_topics = [[topic_0]]  # All transfer events
@@ -691,7 +689,7 @@ class Erc20Manager(EthereumClientManager):
 
         all_events: List[LogReceipt] = []
         # Do the request to `eth_getLogs`
-        logger.debug("Parameters:")
+        logger.info("Parameters:")
         logger.info(parameters)
         logger.info("all_topics:")
         logger.info(all_topics)
