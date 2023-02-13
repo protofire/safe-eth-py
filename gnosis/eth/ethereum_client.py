@@ -690,6 +690,8 @@ class Erc20Manager(EthereumClientManager):
         # Do the request to `eth_getLogs`
         for topics in all_topics:
             parameters["topics"] = topics
+            logger.debug("Parameters:")
+            logger.debug(parameters)
             all_events.extend(self.slow_w3.eth.get_logs(parameters))
 
         # Decode events. Just pick valid ERC20 Transfer events (ERC721 `Transfer` has the same signature)
