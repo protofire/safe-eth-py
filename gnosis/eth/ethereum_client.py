@@ -667,7 +667,10 @@ class Erc20Manager(EthereumClientManager):
         :param token_address: Address of the token
         :return: List of events sorted by blockNumber
         """
+        logger.info("Getting events for erc20 and erc721 transfers")
         topic_0 = self.TRANSFER_TOPIC.hex()
+        logger.warning("topic_0:")
+        logger.error(topic_0)
         if addresses:
             addresses_encoded = [
                 HexBytes(eth_abi.encode_single("address", address)).hex()
@@ -688,7 +691,7 @@ class Erc20Manager(EthereumClientManager):
 
         all_events: List[LogReceipt] = []
         # Do the request to `eth_getLogs`
-        logger.info("Parameters:")
+        logger.debug("Parameters:")
         logger.info(parameters)
         logger.info("all_topics:")
         logger.info(all_topics)
