@@ -688,14 +688,14 @@ class Erc20Manager(EthereumClientManager):
 
         all_events: List[LogReceipt] = []
         # Do the request to `eth_getLogs`
-        logger.debug("Parameters:")
-        logger.debug(parameters)
-        logger.debug("all_topics:")
-        logger.debug(all_topics)
+        logger.info("Parameters:")
+        logger.info(parameters)
+        logger.info("all_topics:")
+        logger.info(all_topics)
         for topics in all_topics:
             parameters["topics"] = topics
-            logger.debug("Parameters:")
-            logger.debug(parameters)
+            logger.info("Parameters:")
+            logger.info(parameters)
             all_events.extend(self.slow_w3.eth.get_logs(parameters))
 
         # Decode events. Just pick valid ERC20 Transfer events (ERC721 `Transfer` has the same signature)
