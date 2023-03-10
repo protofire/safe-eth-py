@@ -894,6 +894,11 @@ class Safe:
         try:
             contract = self.contract
             master_copy = self.retrieve_master_copy_address()
+            logger.info(
+                    "Safe=%s Master Copy=%s",
+                    self.address,
+                    master_copy,
+                )
             fallback_handler = self.retrieve_fallback_handler()
             guard = self.retrieve_guard()
 
@@ -972,9 +977,15 @@ class Safe:
         address = self.w3.eth.get_storage_at(
             self.address, "0x0", block_identifier=block_identifier
         )[-20:].rjust(20, b"\0")
+        logger.info(
+            "Retreived MasterCopy from RPC=%s",
+            address,
+        )
         if address != "0x00" * 20:
+            logger.info("Returning MasterCopy from RPC")
             return fast_bytes_to_checksum_address(address)
         else:
+            logger.info("Returning hardcoded MasterCopy")
             return fast_bytes_to_checksum_address(self.MASTER_COPY_ADDRESS)
 
     def retrieve_modules(
