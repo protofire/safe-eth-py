@@ -919,11 +919,12 @@ class Safe:
                 not modules_response or next_module != SENTINEL_ADDRESS
             ):  # < 1.1.1 or still more elements in the list
                 modules = self.retrieve_modules()
+
             return SafeInfo(
                 self.address,
-                fallback_handler,
-                guard,
-                master_copy,
+                fast_bytes_to_checksum_address(bytes(fallback_handler)),
+                fast_bytes_to_checksum_address(bytes(guard)),
+                fast_bytes_to_checksum_address(bytes(master_copy)),
                 modules,
                 nonce,
                 owners,
