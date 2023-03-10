@@ -925,6 +925,7 @@ class Safe:
             guard_address = fast_bytes_to_checksum_address(bytes(guard)[-20:].rjust(20, b"\0"))
 
             logger.info(
+                "Addresses: master_copy=%s, fallback_handler=%s, guard=%s",
                 master_copy_address,
                 fallback_handler_address,
                 guard_address,
