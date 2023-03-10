@@ -94,6 +94,14 @@ class Safe:
         "60b3cbf8b4a223d68d641b3b6ddf9a298e7f33710cf3d3a9d1146b5a6150fbca"
     )
 
+    FALLBACK_HANDLER_ADDRESS = (
+        0xC4f9Db6bA281E810187208BF62E5E6F33d439187
+    )
+
+    MASTER_COPY_ADDRESS = (
+        0x369C13406825D9F85348B11e2Bb2905D5493313C
+    )
+
     def __init__(self, address: ChecksumAddress, ethereum_client: EthereumClient):
         """
         :param address: Safe address
@@ -945,7 +953,7 @@ class Safe:
         if len(address) == 20:
             return fast_bytes_to_checksum_address(address)
         else:
-            return NULL_ADDRESS
+            return fast_bytes_to_checksum_address(self.FALLBACK_HANDLER_ADDRESS)
 
     def retrieve_guard(
         self, block_identifier: Optional[BlockIdentifier] = "latest"
@@ -964,7 +972,10 @@ class Safe:
         address = self.w3.eth.get_storage_at(
             self.address, "0x0", block_identifier=block_identifier
         )[-20:].rjust(20, b"\0")
-        return fast_bytes_to_checksum_address(address)
+        if len(address) == 20:
+            return fast_bytes_to_checksum_address(address)
+        else:
+            return fast_bytes_to_checksum_address(self.MASTER_COPY_ADDRESS)
 
     def retrieve_modules(
         self,
