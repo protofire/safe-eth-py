@@ -920,11 +920,21 @@ class Safe:
             ):  # < 1.1.1 or still more elements in the list
                 modules = self.retrieve_modules()
 
+            master_copy_address = fast_bytes_to_checksum_address(bytes(master_copy)[-20:].rjust(20, b"\0"))
+            fallback_handler_address = fast_bytes_to_checksum_address(bytes(fallback_handler)[-20:].rjust(20, b"\0"))
+            guard_address = fast_bytes_to_checksum_address(bytes(guard)[-20:].rjust(20, b"\0"))
+
+            logger.info(
+                master_copy_address,
+                fallback_handler_address,
+                guard_address,
+            )
+
             return SafeInfo(
                 self.address,
-                fast_bytes_to_checksum_address(bytes(fallback_handler)),
-                fast_bytes_to_checksum_address(bytes(guard)),
-                fast_bytes_to_checksum_address(bytes(master_copy)),
+                master_copy_address,
+                fallback_handler_address,
+                guard_address,
                 modules,
                 nonce,
                 owners,
