@@ -911,7 +911,6 @@ class Safe:
                 block_identifier=block_identifier,
                 raise_exception=False,
             )
-            logger.info("results=%s", results)
             modules_response, nonce, owners, threshold, version, master_copy, fallback_handler, guard = results
             if modules_response:
                 modules, next_module = modules_response
@@ -924,18 +923,11 @@ class Safe:
             fallback_handler_address = fast_bytes_to_checksum_address(bytes(fallback_handler)[-20:].rjust(20, b"\0"))
             guard_address = fast_bytes_to_checksum_address(bytes(guard)[-20:].rjust(20, b"\0"))
 
-            logger.info(
-                "Addresses: master_copy=%s, fallback_handler=%s, guard=%s",
-                master_copy_address,
-                fallback_handler_address,
-                guard_address,
-            )
-
             return SafeInfo(
                 self.address,
-                master_copy_address,
                 fallback_handler_address,
                 guard_address,
+                master_copy_address,
                 modules,
                 nonce,
                 owners,
