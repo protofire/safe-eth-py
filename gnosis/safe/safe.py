@@ -94,14 +94,6 @@ class Safe:
         "60b3cbf8b4a223d68d641b3b6ddf9a298e7f33710cf3d3a9d1146b5a6150fbca"
     )
 
-    FALLBACK_HANDLER_ADDRESS = (
-        0xC4f9Db6bA281E810187208BF62E5E6F33d439187
-    )
-
-    MASTER_COPY_ADDRESS = (
-        0x369C13406825D9F85348B11e2Bb2905D5493313C
-    )
-
     def __init__(self, address: ChecksumAddress, ethereum_client: EthereumClient):
         """
         :param address: Safe address
@@ -893,14 +885,14 @@ class Safe:
         """
         try:
             contract = self.contract
-            master_copy = self.retrieve_master_copy_address()
+            """ master_copy = self.retrieve_master_copy_address()
             logger.info(
                     "Safe=%s Master Copy=%s",
                     self.address,
                     master_copy,
                 )
             fallback_handler = self.retrieve_fallback_handler()
-            guard = self.retrieve_guard()
+            guard = self.retrieve_guard() """
 
             results = self.ethereum_client.batch_call(
                 [
@@ -911,12 +903,16 @@ class Safe:
                     contract.functions.getOwners(),
                     contract.functions.getThreshold(),
                     contract.functions.VERSION(),
+                    contract.functions.getStorageAt(0x00, 1), # Fetch Master Copy
+                    contract.functions.getStorageAt(0x6C9A6C4A39284E37ED1CF53D337577D14212A4870FB976A4366C693B939918D5, 1), # Fetch Fallback Handler
+                    contract.functions.getStorageAt(0x4A204F620C8C5CCDCA3FD54D003BADD85BA500436A431F0CBDA4F558C93C34C8, 1), # Fetch Guard
                 ],
                 from_address=self.address,
                 block_identifier=block_identifier,
                 raise_exception=False,
             )
-            modules_response, nonce, owners, threshold, version = results
+            logger.info("results=%s", results)
+            modules_response, nonce, owners, threshold, version, master_copy, fallback_handler, guard = results
             if modules_response:
                 modules, next_module = modules_response
             if (
@@ -955,10 +951,10 @@ class Safe:
             self.FALLBACK_HANDLER_STORAGE_SLOT,
             block_identifier=block_identifier,
         )[-20:].rjust(20, b"\0")
-        if address != "0x00" * 20:
+        if len(address) == 20:
             return fast_bytes_to_checksum_address(address)
         else:
-            return fast_bytes_to_checksum_address(self.FALLBACK_HANDLER_ADDRESS)
+            return NULL_ADDRESS
 
     def retrieve_guard(
         self, block_identifier: Optional[BlockIdentifier] = "latest"
@@ -975,18 +971,9 @@ class Safe:
         self, block_identifier: Optional[BlockIdentifier] = "latest"
     ) -> ChecksumAddress:
         address = self.w3.eth.get_storage_at(
-            self.address, "0x0", block_identifier=block_identifier
+            self.address, "0x00", block_identifier=block_identifier
         )[-20:].rjust(20, b"\0")
-        logger.info(
-            "Retreived MasterCopy from RPC=%s",
-            address,
-        )
-        if address != "0x00" * 20:
-            logger.info("Returning MasterCopy from RPC")
-            return fast_bytes_to_checksum_address(address)
-        else:
-            logger.info("Returning hardcoded MasterCopy")
-            return fast_bytes_to_checksum_address(self.MASTER_COPY_ADDRESS)
+        return fast_bytes_to_checksum_address(address)
 
     def retrieve_modules(
         self,
