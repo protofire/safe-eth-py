@@ -950,10 +950,10 @@ class Safe:
             self.FALLBACK_HANDLER_STORAGE_SLOT,
             block_identifier=block_identifier,
         )[-20:].rjust(20, b"\0")
-        if address == "0x00" * 20:
-            return fast_bytes_to_checksum_address(self.FALLBACK_HANDLER_ADDRESS)
-        else:
+        if address != "0x00" * 20:
             return fast_bytes_to_checksum_address(address)
+        else:
+            return fast_bytes_to_checksum_address(self.FALLBACK_HANDLER_ADDRESS)
 
     def retrieve_guard(
         self, block_identifier: Optional[BlockIdentifier] = "latest"
@@ -972,10 +972,10 @@ class Safe:
         address = self.w3.eth.get_storage_at(
             self.address, "0x0", block_identifier=block_identifier
         )[-20:].rjust(20, b"\0")
-        if address == "0x00" * 20:
-            return fast_bytes_to_checksum_address(self.MASTER_COPY_ADDRESS)
-        else:
+        if address != "0x00" * 20:
             return fast_bytes_to_checksum_address(address)
+        else:
+            return fast_bytes_to_checksum_address(self.MASTER_COPY_ADDRESS)
 
     def retrieve_modules(
         self,
