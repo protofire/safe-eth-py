@@ -889,6 +889,8 @@ class Safe:
             fallback_handler = self.retrieve_fallback_handler()
             guard = self.retrieve_guard()
 
+            logger.info("Retrieving all info for Safe=%s", self.address)
+
             results = self.ethereum_client.batch_call(
                 [
                     contract.functions.getModulesPaginated(
@@ -903,6 +905,7 @@ class Safe:
                 block_identifier=block_identifier,
                 raise_exception=False,
             )
+            logger.info("Results from batch_call: %s", results)
             modules_response, nonce, owners, threshold, version = results
             if modules_response:
                 modules, next_module = modules_response

@@ -257,6 +257,7 @@ class BatchCallManager(EthereumClientManager):
         batch_size = batch_size or self.ethereum_client.batch_request_max_size
         all_results = []
         for chunk in chunks(queries, batch_size):
+            logger.info("Sending batch request: %s", chunk)
             response = self.http_session.post(
                 self.ethereum_node_url, json=chunk, timeout=self.slow_timeout
             )
@@ -264,7 +265,7 @@ class BatchCallManager(EthereumClientManager):
                 raise ConnectionError(
                     f"Error connecting to {self.ethereum_node_url}: {response.text}"
                 )
-
+            logger.info("Received batch response: %s", response.json())
             results = response.json()
 
             # If there's an error some nodes return a json instead of a list
@@ -349,7 +350,7 @@ class BatchCallManager(EthereumClientManager):
             if from_address:
                 payload["from"] = from_address
             payloads.append(payload)
-
+        logger.info("Batch call payloads: %s", payloads)
         return self.batch_call_custom(
             payloads, raise_exception=raise_exception, block_identifier=block_identifier
         )
@@ -1458,6 +1459,7 @@ class EthereumClient:
         """
         if self.multicall and not force_batch_call:  # Multicall is more optimal
             return [
+                logger.info("Optimal way to call")
                 result.return_data_decoded
                 for result in self.multicall.try_aggregate(
                     contract_functions,
@@ -1466,6 +1468,7 @@ class EthereumClient:
                 )
             ]
         else:
+            logger.info("Less optimal way to call")
             return self.batch_call_manager.batch_call(
                 contract_functions,
                 from_address=from_address,
