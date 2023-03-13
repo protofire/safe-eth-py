@@ -1458,8 +1458,8 @@ class EthereumClient:
         :raises: BatchCallException
         """
         if self.multicall and not force_batch_call:  # Multicall is more optimal
+            logger.info("Optimal way to call")
             return [
-                logger.info("Optimal way to call")
                 result.return_data_decoded
                 for result in self.multicall.try_aggregate(
                     contract_functions,
