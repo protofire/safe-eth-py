@@ -393,6 +393,10 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 22172521, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 22172524, "1.3.0"),
     ],
+    EthereumNetwork.IOTEX_NETWORK_TESTNET: [
+        ("0x7299d3c870A767638eD794eeDE80284C185EE6eD", 18644853, "1.3.0+L2"),
+        ("0xa3238D50fc88866B7740dbdE817A4e6556998eB5", 18645423, "1.3.0"),
+    ],
     EthereumNetwork.HARMONY_MAINNET_SHARD_0: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 22502193, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 22502199, "1.3.0"),
@@ -763,6 +767,9 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.IOTEX_NETWORK_MAINNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 22172504),  # v1.3.0
+    ],
+    EthereumNetwork.IOTEX_NETWORK_TESTNET: [
+        ("0xe6A900e5a57aD203e102F4dE7A7fA8Dc189CecD2", 18644255),  # v1.3.0
     ],
     EthereumNetwork.HARMONY_MAINNET_SHARD_0: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 22502012),  # v1.3.0
