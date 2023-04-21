@@ -6,7 +6,7 @@ from operator import itemgetter
 
 from git import Repo
 
-GIT_URL = "https://github.com/ethereum-lists/chains.git"
+GIT_URL = "https://github.com/protofire/chains.git"
 REPO_DIR = "sources"
 RESULT_FILE_PATH = "result.txt"
 
