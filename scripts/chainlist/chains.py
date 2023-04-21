@@ -1,6 +1,7 @@
 import json
 import re
 import shutil
+import logging
 from glob import glob
 from operator import itemgetter
 
@@ -50,6 +51,7 @@ def process_chains() -> None:
 
     # sort the list by chainId
     chains = sorted(chains, key=itemgetter("chainId"))
+    logging.debug("chains: %s", chains)
     for chain in chains:
         result_file.write(
             "{} = {}\n".format(
