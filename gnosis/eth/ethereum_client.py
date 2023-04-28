@@ -674,7 +674,7 @@ class Erc20Manager(EthereumClientManager):
             # Topics for transfer `to` and `from` an address
             all_topics = [
                 [topic_0, addresses_encoded],  # Topics from
-                [topic_0, None, addresses_encoded],  # Topics to
+                [topic_0, [], addresses_encoded],  # Topics to
             ]
         else:
             all_topics = [[topic_0]]  # All transfer events
