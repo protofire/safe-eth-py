@@ -1240,12 +1240,16 @@ class EthereumClient:
 
         batch_size = batch_size or self.batch_request_max_size
 
+        logger.info("Batch request payload: %s", payload)
+
         all_results = []
         # Temporary disable batch requests
         for chunk in payload:
+            logger.info("Batch request chunk: %s", chunk)
             response = self.http_session.post(
                 self.ethereum_node_url, json=chunk, timeout=self.slow_timeout
             )
+            logger.info("Batch request response: %s", response)
 
             if not response.ok:
                 logger.error(
@@ -1257,6 +1261,7 @@ class EthereumClient:
                 raise ValueError(f"Batch request error: {response.content}")
 
             results = response.json()
+            logger.info("Batch request results: %s", results)
 
             # If there's an error some nodes return a json instead of a list
             if isinstance(results, dict) and "error" in results:
@@ -1267,7 +1272,7 @@ class EthereumClient:
 
             all_results.extend(results)
 
-        logger.info("Batch request results: %s", all_results)
+        logger.info("Batch request all_results: %s", all_results)
 
         # Nodes like Erigon send back results out of order
         for query, result in zip(payload, sorted(all_results, key=lambda x: x["id"])):
