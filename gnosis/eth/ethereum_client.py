@@ -1270,7 +1270,7 @@ class EthereumClient:
                 )
                 raise ValueError(f"Batch request error: {results}")
 
-            all_results.extend(results)
+            all_results.append(results)
 
         logger.info("Batch request all_results: %s", all_results)
 
