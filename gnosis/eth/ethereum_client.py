@@ -1241,7 +1241,8 @@ class EthereumClient:
         batch_size = batch_size or self.batch_request_max_size
 
         all_results = []
-        for chunk in chunks(payload, batch_size):
+        # Temporary disable batch requests
+        for chunk in payload:
             response = self.http_session.post(
                 self.ethereum_node_url, json=chunk, timeout=self.slow_timeout
             )
