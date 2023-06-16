@@ -464,6 +464,10 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0",
         ),  # Safe singleton address
     ],
+    EthereumNetwork.ZKSYNC_ALPHA_TESTNET: [
+        ("0x439540E330eA6e28d73729eDc5C83578d3d3dFde", 353676, "1.3.0+L2"),
+        ("0xbDEf90f0b9023eD929f885FAf81b4d7b89165B6a", 353676, "1.3.0"),
+    ],
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -768,5 +772,8 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
             "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
             2086864,
         ),  # v1.3.0  Default singleton address
+    ],
+    EthereumNetwork.ZKSYNC_ALPHA_TESTNET: [
+        ("0x07551c0Daf6fCD9bc2A398357E5C92C139724Ef3", 353656),  # v1.3.0
     ],
 }
