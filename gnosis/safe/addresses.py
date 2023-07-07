@@ -406,6 +406,10 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 27572492, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 27572642, "1.3.0"),
     ],
+    EthereumNetwork.ETHERLITE_CHAIN: [ #VELAS_EVM_TESTNET
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 2351601, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 2351603, "1.3.0"),
+    ],
     EthereumNetwork.WEMIX3_0_MAINNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 12651754, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 12651757, "1.3.0"),
@@ -765,6 +769,9 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.VELAS_EVM_MAINNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 27571962),  # v1.3.0
+    ],
+    EthereumNetwork.ETHERLITE_CHAIN: [ #VELAS_EVM_TESTNET
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 2351498),  # v1.3.0
     ],
     EthereumNetwork.WEMIX3_0_MAINNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 12651730),  # v1.3.0
