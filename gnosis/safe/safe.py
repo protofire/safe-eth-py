@@ -884,9 +884,9 @@ class Safe:
         """
         try:
             contract = self.contract
-            master_copy = self.retrieve_master_copy_address()
+            """ master_copy = self.retrieve_master_copy_address()
             fallback_handler = self.retrieve_fallback_handler()
-            guard = self.retrieve_guard()
+            guard = self.retrieve_guard() """
 
             results = self.ethereum_client.batch_call(
                 [
@@ -897,12 +897,15 @@ class Safe:
                     contract.functions.getOwners(),
                     contract.functions.getThreshold(),
                     contract.functions.VERSION(),
+                    contract.functions.getStorageAt(0x00, 1), # Fetch Master Copy
+                    contract.functions.getStorageAt(0x6C9A6C4A39284E37ED1CF53D337577D14212A4870FB976A4366C693B939918D5, 1), # Fetch Fallback Handler
+                    contract.functions.getStorageAt(0x4A204F620C8C5CCDCA3FD54D003BADD85BA500436A431F0CBDA4F558C93C34C8, 1), # Fetch Guard
                 ],
                 from_address=self.address,
                 block_identifier=block_identifier,
                 raise_exception=False,
             )
-            modules_response, nonce, owners, threshold, version = results
+            modules_response, nonce, owners, threshold, version, master_copy, fallback_handler, guard = results
             if not modules_response:
                 # < 1.1.1
                 modules = self.retrieve_modules()
@@ -912,11 +915,15 @@ class Safe:
                     # Still more elements in the list
                     modules = self.retrieve_modules()
 
+            master_copy_address = fast_bytes_to_checksum_address(bytes(master_copy)[-20:].rjust(20, b"\0"))
+            fallback_handler_address = fast_bytes_to_checksum_address(bytes(fallback_handler)[-20:].rjust(20, b"\0"))
+            guard_address = fast_bytes_to_checksum_address(bytes(guard)[-20:].rjust(20, b"\0"))
+
             return SafeInfo(
                 self.address,
-                fallback_handler,
-                guard,
-                master_copy,
+                fallback_handler_address,
+                guard_address,
+                master_copy_address,
                 modules,
                 nonce,
                 owners,
