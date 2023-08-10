@@ -46,6 +46,9 @@ class EtherscanClient:
         EthereumNetwork.BASE_GOERLI_TESTNET: "https://goerli.basescan.org",
         EthereumNetwork.NEON_EVM_DEVNET: "https://neonscan.org",
         EthereumNetwork.SEPOLIA: "https://sepolia.etherscan.io",
+        EthereumNetwork.LINEA: "https://lineascan.build",
+        EthereumNetwork.LINEA_TESTNET: "https://goerli.lineascan.build"
+
     }
 
     NETWORK_WITH_API_URL = {
@@ -72,6 +75,8 @@ class EtherscanClient:
         EthereumNetwork.BASE_GOERLI_TESTNET: "https://api-goerli.basescan.org",
         EthereumNetwork.NEON_EVM_DEVNET: "https://devnet-api.neonscan.org",
         EthereumNetwork.SEPOLIA: "https://api-sepolia.etherscan.io",
+        EthereumNetwork.LINEA: "https://api.lineascan.build",
+        EthereumNetwork.LINEA_TESTNET: "https://api-testnet.lineascan.build/"
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
