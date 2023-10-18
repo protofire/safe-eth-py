@@ -52,6 +52,7 @@ class BlockscoutClient:
         EthereumNetwork.ASTAR: "https://blockscout.com/astar/",
         EthereumNetwork.SHIDEN: "https://blockscout.com/shiden/",
         EthereumNetwork.ZENITH_TESTNET_VILNIUS: "https://blockscout.com/shibuya/", #SHIBUYA
+        EthereumNetwork.ZKATANA_TESTNET: "https://zkatana.blockscout.com/",
         EthereumNetwork.EVMOS: "https://evm.evmos.org",
         EthereumNetwork.EVMOS_TESTNET: "https://evm.evmos.dev",
         EthereumNetwork.RABBIT_ANALOG_TESTNET_CHAIN: "https://rabbit.analogscan.com",
