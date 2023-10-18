@@ -56,6 +56,8 @@ class EtherscanClient:
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.SCROLL_SEPOLIA_TESTNET: "https://sepolia.scrollscan.dev",
         EthereumNetwork.SCROLL: "https://scrollscan.com",
+        EthereumNetwork.LINEA: "https://www.lineascan.build",
+        EthereumNetwork.LINEA_TESTNET: "https://goerli.lineascan.build",
     }
 
     NETWORK_WITH_API_URL = {
@@ -92,6 +94,8 @@ class EtherscanClient:
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.SCROLL_SEPOLIA_TESTNET: "https://api-sepolia.scrollscan.dev",
         EthereumNetwork.SCROLL: "https://api.scrollscan.com",
+        EthereumNetwork.LINEA: "https://api.lineascan.build",
+        EthereumNetwork.LINEA_TESTNET: "https://api-testnet.lineascan.build",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
