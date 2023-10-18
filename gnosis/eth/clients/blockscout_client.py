@@ -46,6 +46,7 @@ class BlockscoutClient:
         EthereumNetwork.ASTAR: "https://blockscout.com/astar/graphiql",
         EthereumNetwork.SHIDEN: "https://blockscout.com/shiden/graphiql",
         EthereumNetwork.ZENITH_TESTNET_VILNIUS: "https://blockscout.com/shibuya/graphiql", #SHIBUYA
+        EthereumNetwork.ZKATANA_TESTNET: "https://zkatana.blockscout.com/graphiql",
         EthereumNetwork.EVMOS: "https://evm.evmos.org/graphiql",
         EthereumNetwork.EVMOS_TESTNET: "https://evm.evmos.dev/graphiql",
         EthereumNetwork.KCC_MAINNET: "https://scan.kcc.io/graphiql",
