@@ -59,6 +59,22 @@ class BlockscoutClient:
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz/graphiql",
         EthereumNetwork.ZETACHAIN_ATHENS_TESTNET: "https://zetachain-athens-3.blockscout.com/graphiql",
         EthereumNetwork.SCROLL: "https://blockscout.scroll.io/graphiql",
+        EthereumNetwork.RSK_MAINNET: "https://rootstock.blockscout.com/graphiql",
+        EthereumNetwork.RSK_TESTNET: "https://rootstock-testnet.blockscout.com/graphiql",
+        EthereumNetwork.LINEA: "https://explorer.linea.build/graphiql",
+        EthereumNetwork.LINEA_TESTNET: "https://explorer.goerli.linea.build/graphiql",
+        EthereumNetwork.NEON_EVM_MAINNET: "https://neon.blockscout.com/graphiql",
+        EthereumNetwork.NEON_EVM_DEVNET: "https://neon-devnet.blockscout.com/graphiql",
+        EthereumNetwork.OASIS_SAPPHIRE: "https://explorer.sapphire.oasis.io/graphiql",
+        EthereumNetwork.OASIS_SAPPHIRE_TESTNET: "https://testnet.explorer.sapphire.oasis.dev/graphiql",
+        EthereumNetwork.CASCADIA_TESTNET: "https://explorer.cascadia.foundation/graphiql",
+        EthereumNetwork.TENET: "https://tenetscan.io/graphiql",
+        EthereumNetwork.TENET_TESTNET: "https://testnet.tenetscan.io/graphiql",
+        EthereumNetwork.VELAS_EVM_MAINNET: "https://evmexplorer.velas.com/graphiql",
+        EthereumNetwork.CRONOS_MAINNET_BETA: "https://cronos.org/explorer/graphiql",
+        EthereumNetwork.CRONOS_TESTNET: "https://cronos.org/explorer/testnet3/graphiql",
+        EthereumNetwork.THUNDERCORE_MAINNET: "https://explorer-mainnet.thundercore.com/graphiql",
+        EthereumNetwork.THUNDERCORE_TESTNET: "https://explorer-testnet.thundercore.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
