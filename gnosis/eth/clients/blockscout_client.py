@@ -64,6 +64,8 @@ class BlockscoutClient:
         EthereumNetwork.ZETACHAIN_ATHENS_TESTNET: "https://zetachain-athens-3.blockscout.com/",
         EthereumNetwork.SCROLL_SEPOLIA_TESTNET: "https://sepolia-blockscout.scroll.io/",
         EthereumNetwork.SCROLL: "https://blockscout.scroll.io/",
+        EthereumNetwork.MANTLE: "https://explorer.mantle.xyz/",
+        EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz/",
     }
 
     def __init__(self, network: EthereumNetwork):
