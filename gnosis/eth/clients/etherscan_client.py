@@ -60,6 +60,7 @@ class EtherscanClient:
         EthereumNetwork.LINEA_TESTNET: "https://goerli.lineascan.build",
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
+        EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
     }
 
     NETWORK_WITH_API_URL = {
@@ -100,7 +101,7 @@ class EtherscanClient:
         EthereumNetwork.LINEA_TESTNET: "https://api-testnet.lineascan.build",
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
-        EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io/",
+        EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
