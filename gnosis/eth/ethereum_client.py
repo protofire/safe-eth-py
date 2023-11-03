@@ -1331,11 +1331,19 @@ class EthereumClient:
         """
         :return: `True` if EIP1559 is supported by the node, `False` otherwise
         """
-        try:
+        # Get the latest block
+        latest_block = self.w3.eth.get_block('latest')
+
+        # Check if 'baseFeePerGas' is in the block's dictionary keys
+        if 'baseFeePerGas' in latest_block.keys():
+            return True
+        else:
+            return False
+        """ try:
             self.w3.eth.fee_history(1, "latest", reward_percentiles=[50])
             return True
         except (Web3Exception, ValueError):
-            return False
+            return False """
 
     @cached_property
     def multicall(self) -> "Multicall":  # noqa F821
