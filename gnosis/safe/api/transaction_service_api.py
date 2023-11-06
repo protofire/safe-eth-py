@@ -31,6 +31,8 @@ class TransactionServiceApi(SafeBaseAPI):
         EthereumNetwork.POLYGON: "https://safe-transaction-polygon.safe.global",
         EthereumNetwork.ZKSYNC_V2: "https://safe-transaction-zksync.safe.global",
         EthereumNetwork.POLYGON_ZKEVM: "https://safe-transaction-zkevm.safe.global",
+        EthereumNetwork.SCROLL: "https://transaction.staging.safe.scroll.xyz",
+        EthereumNetwork.SCROLL_SEPOLIA_TESTNET: "https://transaction-sepolia.staging.safe.scroll.xyz",
     }
 
     @classmethod
