@@ -85,6 +85,7 @@ class BlockscoutClient:
         EthereumNetwork.CRONOS_TESTNET: "https://cronos.org/explorer/testnet3/",
         EthereumNetwork.THUNDERCORE_MAINNET: "https://explorer-mainnet.thundercore.com/",
         EthereumNetwork.THUNDERCORE_TESTNET: "https://explorer-testnet.thundercore.com/",
+        EthereumNetwork.MANTA_PACIFIC_MAINNET: "https://pacific-explorer.manta.network/",
     }
 
     def __init__(self, network: EthereumNetwork):
