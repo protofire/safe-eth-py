@@ -75,6 +75,8 @@ class BlockscoutClient:
         EthereumNetwork.CRONOS_TESTNET: "https://cronos.org/explorer/testnet3/graphiql",
         EthereumNetwork.THUNDERCORE_MAINNET: "https://explorer-mainnet.thundercore.com/graphiql",
         EthereumNetwork.THUNDERCORE_TESTNET: "https://explorer-testnet.thundercore.com/graphiql",
+        EthereumNetwork.IMMUTABLE_TESTNET: "https://explorer.testnet.immutable.com/graphiql",
+        EthereumNetwork.IMMUTABLE_MAINNET: "https://explorer.immutable.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
