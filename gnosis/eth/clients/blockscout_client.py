@@ -51,9 +51,6 @@ class BlockscoutClient:
         EthereumNetwork.EVMOS_TESTNET: "https://evm.evmos.dev/graphiql",
         EthereumNetwork.KCC_MAINNET: "https://scan.kcc.io/graphiql",
         EthereumNetwork.KCC_TESTNET: "https://scan-testnet.kcc.network/graphiql",
-        EthereumNetwork.ARBITRUM_ONE: "https://explorer.arbitrum.io/graphiql",
-        EthereumNetwork.ARBITRUM_NOVA: "https://nova-explorer.arbitrum.io/graphiql",
-        EthereumNetwork.ARBITRUM_GOERLI: "https://goerli-rollup-explorer.arbitrum.io/graphiql",
         EthereumNetwork.CROSSBELL: "https://scan.crossbell.io/graphiql",
         EthereumNetwork.ETHEREUM_CLASSIC_MAINNET: "https://blockscout.com/etc/mainnet/graphiql",
         EthereumNetwork.ETHEREUM_CLASSIC_TESTNET_MORDOR: "https://blockscout.com/etc/mordor/graphiql",
@@ -81,6 +78,9 @@ class BlockscoutClient:
         EthereumNetwork.MANTA_PACIFIC_MAINNET: "https://pacific-explorer.manta.network/graphiql",
         EthereumNetwork.KROMA: "https://blockscout.kroma.network/graphiql",
         EthereumNetwork.KROMA_SEPOLIA: "https://blockscout.sepolia.kroma.network/graphiql",
+        EthereumNetwork.PGN_MAINNET: "https://explorer.publicgoods.network/graphiql",
+        EthereumNetwork.PGN_TESTNET: "https://explorer.sepolia.publicgoods.network/graphiql",
+        EthereumNetwork.ARTHERA_TESTNET: "https://explorer-test.arthera.net/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
