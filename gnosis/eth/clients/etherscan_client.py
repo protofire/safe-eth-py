@@ -61,6 +61,8 @@ class EtherscanClient:
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
+        EthereumNetwork.KROMA: "https://kromascan.com",
+        EthereumNetwork.KROMA_SEPOLIA: "https://sepolia.kromascan.com",
     }
 
     NETWORK_WITH_API_URL = {
@@ -102,6 +104,8 @@ class EtherscanClient:
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
+        EthereumNetwork.KROMA: "https://api.kromascan.com",
+        EthereumNetwork.KROMA_SEPOLIA: "https://api-sepolia.kromascan.com",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
