@@ -83,6 +83,7 @@ class BlockscoutClient:
         EthereumNetwork.ARTHERA_TESTNET: "https://explorer-test.arthera.net/graphiql",
         EthereumNetwork.ZORA_NETWORK: "https://explorer.mode.network/graphiql",
         EthereumNetwork.MODE: "https://explorer.mode.network/graphiql",
+        EthereumNetwork.ZETACHAIN_MAINNET: "https://zetachain.blockscout.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
