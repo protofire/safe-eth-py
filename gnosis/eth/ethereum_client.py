@@ -53,6 +53,7 @@ from web3.types import (
     Wei,
 )
 
+from gnosis.eth.web3 import ThrottleMiddleware
 from gnosis.eth.utils import (
     fast_is_checksum_address,
     fast_to_checksum_address,
@@ -1180,6 +1181,7 @@ class EthereumClient:
         retry_count: int = 1,
         use_caching_middleware: bool = True,
         batch_request_max_size: int = 500,
+        limit_requests_per_second: int = None,
     ):
         """
         :param ethereum_node_url: Ethereum RPC uri
@@ -1194,6 +1196,7 @@ class EthereumClient:
         self.timeout = provider_timeout
         self.slow_timeout = slow_provider_timeout
         self.use_caching_middleware = use_caching_middleware
+        self.limit_requests_per_second = limit_requests_per_second
 
         self.w3_provider = HTTPProvider(
             self.ethereum_node_url,
@@ -1216,6 +1219,10 @@ class EthereumClient:
             w3.provider.middlewares = []
             if self.use_caching_middleware:
                 w3.middleware_onion.add(simple_cache_middleware)
+            # Limit requests per second (Some RPC providers have a limit on this, like Infura)
+            if self.limit_requests_per_second is not None:
+                throttle_middleware = ThrottleMiddleware(w3, requests_per_second=5)
+                w3.middleware_onion.inject(throttle_middleware.middleware, layer=0)
 
         # The geth_poa_middleware is required to connect to geth --dev or the Goerli public network.
         # It may also be needed for other EVM compatible blockchains like Polygon or BNB Chain (Binance Smart Chain).
