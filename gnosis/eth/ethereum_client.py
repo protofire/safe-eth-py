@@ -194,6 +194,7 @@ class EthereumClientProvider:
                 batch_request_max_size=int(
                     os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 500)
                 ),
+                limit_requests_per_second=os.environ.get("ETHEREUM_NODE_THROTTLING_RPS")
             )
         return cls.instance
 
