@@ -95,8 +95,6 @@ gnosis.eth.utils
 
 Contains utils for ethereum operations:
 
-- ``get_eth_address_with_key() -> Tuple[str, bytes]``: Returns a tuple of a valid public ethereum checksumed
-  address with the private key.
 - ``mk_contract_address_2(from_: Union[str, bytes], salt: Union[str, bytes], init_code: [str, bytes]) -> str``:
   Calculates the address of a new contract created using the new CREATE2 opcode.
 
@@ -118,18 +116,17 @@ Contributors
 ------------
 `See contributors <https://github.com/safe-global/safe-eth-py/graphs/contributors>`_
 
-.. |ci| image:: https://github.com/safe-global/safe-eth-py/workflows/Python%20CI/badge.svg?branch=master
+.. |ci| image:: https://github.com/safe-global/safe-eth-py/actions/workflows/python.yml/badge.svg
     :alt: Github Actions CI build
 
-.. |coveralls| image:: https://coveralls.io/repos/github/safe-global/safe-eth-py/badge.svg?branch=master
-    :target: https://coveralls.io/github/safe-global/safe-eth-py?branch=master
-    :alt: Coveralls
+.. |coveralls| image:: https://coveralls.io/repos/github/safe-global/safe-eth-py/badge.svg
+    :target: https://coveralls.io/github/safe-global/safe-eth-py
 
-.. |python| image:: https://img.shields.io/badge/Python-3.9-blue.svg
-    :alt: Python 3.9
+.. |python| image:: https://img.shields.io/badge/Python-3.12-blue.svg
+    :alt: Python 3.12
 
-.. |django| image:: https://img.shields.io/badge/Django-2-blue.svg
-    :alt: Django 2.2
+.. |django| image:: https://img.shields.io/badge/Django-5-blue.svg
+    :alt: Django 5
 
 .. |pipy| image:: https://badge.fury.io/py/safe-eth-py.svg
     :target: https://badge.fury.io/py/safe-eth-py

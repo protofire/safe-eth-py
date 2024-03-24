@@ -2,7 +2,7 @@ name: Python CI
 on:
   push:
     branches:
-      - master
+      - main
       - develop
   pull_request:
   release:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.11]
+        python-version: [3.12]
 
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9, "3.10", 3.11]
+        python-version: [3.9, "3.10", 3.11, 3.12]
     services:
       postgres:
         image: postgres:13
@@ -62,7 +62,7 @@ jobs:
         cache-dependency-path: 'requirements*.txt'
     - name: Install dependencies
       run: |
-        pip install wheel
+        pip install wheel setuptools
         pip install -r requirements-test.txt coveralls
       env:
         PIP_USE_MIRRORS: true
@@ -73,6 +73,7 @@ jobs:
         DJANGO_SETTINGS_MODULE: config.settings.test
         ETHEREUM_MAINNET_NODE: ${{ secrets.ETHEREUM_MAINNET_NODE }}
         ETHEREUM_POLYGON_NODE: ${{ secrets.ETHEREUM_POLYGON_NODE }}
+        BUNDLER_CLIENT_URL: ${{ secrets.BUNDLER_CLIENT_URL }}
     - name: Test packaging
       run: pip install -e .
     - name: Send results to coveralls

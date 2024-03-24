@@ -4,19 +4,19 @@ from django.test import TestCase
 
 from eth_account import Account
 from hexbytes import HexBytes
-from web3 import Web3
 
 from gnosis.eth.constants import GAS_CALL_DATA_BYTE, NULL_ADDRESS
 from gnosis.eth.contracts import get_safe_contract, get_sign_message_lib_contract
-from gnosis.eth.utils import get_empty_tx_params, get_eth_address_with_key
+from gnosis.eth.utils import fast_keccak_text, get_empty_tx_params
 
+from ..enums import SafeOperationEnum
 from ..exceptions import (
     CannotEstimateGas,
     CannotRetrieveSafeInfoException,
     CouldNotPayGasWithToken,
     InvalidInternalTx,
 )
-from ..safe import Safe, SafeOperation, SafeV100, SafeV111, SafeV130, SafeV141
+from ..safe import Safe, SafeV100, SafeV111, SafeV130, SafeV141
 from ..signatures import signature_to_bytes, signatures_to_bytes
 from .safe_test_case import SafeTestCaseMixin
 
@@ -125,12 +125,12 @@ class TestSafe(SafeTestCaseMixin, TestCase):
         w3 = self.w3
         funder_account = self.ethereum_test_account
         funder = funder_account.address
-        owners_with_keys = [get_eth_address_with_key(), get_eth_address_with_key()]
+        accounts = [Account.create() for _ in range(2)]
         # Signatures must be sorted!
-        owners_with_keys.sort(key=lambda x: x[0].lower())
-        owners = [x[0] for x in owners_with_keys]
-        keys = [x[1] for x in owners_with_keys]
-        threshold = len(owners_with_keys)
+        accounts.sort(key=lambda a: a.address.lower())
+        owners = [account.address for account in accounts]
+        keys = [account.key for account in accounts]
+        threshold = len(accounts)
 
         safe = self.deploy_test_safe(threshold=threshold, owners=owners)
         my_safe_address = safe.address
@@ -266,7 +266,7 @@ class TestSafe(SafeTestCaseMixin, TestCase):
 
     def test_send_multisig_tx_gas_token(self):
         # Create safe with one owner, fund the safe and the owner with `safe_balance`
-        receiver, _ = get_eth_address_with_key()
+        receiver = Account.create().address
         threshold = 1
         funder_account = self.ethereum_test_account
         funder = funder_account.address
@@ -485,10 +485,10 @@ class TestSafe(SafeTestCaseMixin, TestCase):
         nester_data = nester_tx["data"]
 
         safe_tx_gas_no_call = safe.estimate_tx_gas_with_safe(
-            nester.address, 0, nester_data, SafeOperation.CALL.value
+            nester.address, 0, nester_data, SafeOperationEnum.CALL.value
         )
         safe_tx_gas = safe.estimate_tx_gas_by_trying(
-            nester.address, 0, nester_data, SafeOperation.CALL.value
+            nester.address, 0, nester_data, SafeOperationEnum.CALL.value
         )
         self.assertGreater(safe_tx_gas, safe_tx_gas_no_call)
 
@@ -496,7 +496,7 @@ class TestSafe(SafeTestCaseMixin, TestCase):
             nester.address,
             0,
             nester_data,
-            SafeOperation.CALL.value,
+            SafeOperationEnum.CALL.value,
             NULL_ADDRESS,
             safe_tx_gas,
         )
@@ -672,8 +672,8 @@ class TestSafe(SafeTestCaseMixin, TestCase):
     def test_retrieve_is_hash_approved(self):
         safe = self.deploy_test_safe(owners=[self.ethereum_test_account.address])
         safe_contract = safe.contract
-        fake_tx_hash = Web3.keccak(text="Knopfler")
-        another_tx_hash = Web3.keccak(text="Marc")
+        fake_tx_hash = fast_keccak_text("Knopfler")
+        another_tx_hash = fast_keccak_text("Marc")
         tx = safe_contract.functions.approveHash(fake_tx_hash).build_transaction(
             {"from": self.ethereum_test_account.address}
         )
@@ -722,7 +722,7 @@ class TestSafe(SafeTestCaseMixin, TestCase):
             sign_message_lib_address,
             0,
             sign_message_data,
-            SafeOperation.DELEGATE_CALL.value,
+            SafeOperationEnum.DELEGATE_CALL.value,
         )
         safe_tx.sign(self.ethereum_test_account.key)
         safe_tx.execute(tx_sender_private_key=self.ethereum_test_account.key)
@@ -776,7 +776,7 @@ class TestSafe(SafeTestCaseMixin, TestCase):
         safe = Safe(safe_address, self.ethereum_client)
         safe_instance = get_safe_contract(self.w3, safe_address)
 
-        to, _ = get_eth_address_with_key()
+        to = Account.create().address
         value = self.w3.to_wei(0.001, "ether")
         data = b""
         operation = 0
