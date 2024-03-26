@@ -939,6 +939,14 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 84, "1.3.0+L2"),
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 85, "1.3.0"),
     ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0xEEd210D4212991Ca1bD6D0c088d134FEc2160592", 88114, "1.3.0+L2"),
+        ("0xD0665DB63eEF203a3da6F4fde6A84D6525aE2B0B", 88116, "1.3.0"),
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0xEEd210D4212991Ca1bD6D0c088d134FEc2160592", 16994, "1.3.0+L2"),
+        ("0xD0665DB63eEF203a3da6F4fde6A84D6525aE2B0B", 16995, "1.3.0"),
+    ],
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -1526,5 +1534,11 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.REYA_NETWORK: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 77),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0x95E148d31326Bd726d5c82744756F2f6Ff2A2D9F", 88106),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0x95E148d31326Bd726d5c82744756F2f6Ff2A2D9F", 16987),  # v1.3.0
     ],
 }
