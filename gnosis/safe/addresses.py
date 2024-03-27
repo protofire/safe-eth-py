@@ -900,14 +900,14 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1479591, "1.3.0"),
     ],
     EthereumNetwork.IMMUTABLE_ZKEVM_DEVNET: [
-        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1528994, "1.3.0+L2"), # temporary-deployment
-        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1529000, "1.3.0"), # temporary-deployment
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1528994, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1529000, "1.3.0"),  # temporary-deployment
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3283039, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3283044, "1.3.0"),
     ],
     EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: [
-        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1489892, "1.3.0+L2"), # temporary-deployment
-        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1489899, "1.3.0"), # temporary-deployment
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1489892, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1489899, "1.3.0"),  # temporary-deployment
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3244331, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3244337, "1.3.0"),
     ],
