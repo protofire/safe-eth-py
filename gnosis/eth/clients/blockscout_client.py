@@ -71,7 +71,6 @@ class BlockscoutClient:
         EthereumNetwork.CASCADIA_TESTNET: "https://explorer.cascadia.foundation/graphiql",
         EthereumNetwork.TENET: "https://tenetscan.io/graphiql",
         EthereumNetwork.TENET_TESTNET: "https://testnet.tenetscan.io/graphiql",
-        EthereumNetwork.VELAS_EVM_MAINNET: "https://evmexplorer.velas.com/graphiql",
         EthereumNetwork.CRONOS_MAINNET: "https://cronos.org/explorer/graphiql",
         EthereumNetwork.CRONOS_TESTNET: "https://cronos.org/explorer/testnet3/graphiql",
         EthereumNetwork.THUNDERCORE_MAINNET: "https://explorer-mainnet.thundercore.com/graphiql",
