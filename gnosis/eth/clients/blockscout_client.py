@@ -101,6 +101,7 @@ class BlockscoutClient:
         EthereumNetwork.REAL_MAINNET: "https://explorer.re.al/graphiql",
         EthereumNetwork.REYA_NETWORK: "https://explorer.reya.network/graphiql",
         EthereumNetwork.CROSSFI_TESTNET: "https://scan.testnet.ms/graphiql",
+        EthereumNetwork.FRAXTAL_SEPOLIA: "https://explorer.testnet-sepolia.frax.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
