@@ -105,6 +105,7 @@ class BlockscoutClient:
         EthereumNetwork.BOB: "https://explorer.gobob.xyz/api/v1/graphql",
         EthereumNetwork.ETHERLITE_CHAIN: "https://testnet-explorer.gobob.xyz/api/v1/graphql",  # BOB Testnet
         EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: "https://opcelestia-raspberry.gelatoscout.com/graphiql",
+        EthereumNetwork.ARBITRUM_BLUEBERRY_TESTNET: "https://arb-blueberry.gelatoscout.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
