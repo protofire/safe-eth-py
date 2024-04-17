@@ -103,7 +103,8 @@ class BlockscoutClient:
         EthereumNetwork.CROSSFI_TESTNET: "https://scan.testnet.ms/graphiql",
         EthereumNetwork.FRAXTAL_SEPOLIA: "https://explorer.testnet-sepolia.frax.com/graphiql",
         EthereumNetwork.BOB: "https://explorer.gobob.xyz/api/v1/graphql",
-        EthereumNetwork.ETHERLITE_CHAIN: "https://testnet-explorer.gobob.xyz/api/v1/graphql", # BOB Testnet
+        EthereumNetwork.ETHERLITE_CHAIN: "https://testnet-explorer.gobob.xyz/api/v1/graphql",  # BOB Testnet
+        EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: "https://opcelestia-raspberry.gelatoscout.com/graphiql",
     }
 
     def __init__(self, network: EthereumNetwork):
@@ -126,15 +127,15 @@ class BlockscoutClient:
         return response.json()
 
     def get_contract_metadata(
-        self, address: ChecksumAddress
+            self, address: ChecksumAddress
     ) -> Optional[ContractMetadata]:
         query = '{address(hash: "%s") { hash, smartContract {name, abi} }}' % address
         result = self._do_request(self.grahpql_url, query)
         if (
-            result
-            and "error" not in result
-            and result.get("data", {}).get("address", {})
-            and result["data"]["address"]["smartContract"]
+                result
+                and "error" not in result
+                and result.get("data", {}).get("address", {})
+                and result["data"]["address"]["smartContract"]
         ):
             smart_contract = result["data"]["address"]["smartContract"]
             return ContractMetadata(
