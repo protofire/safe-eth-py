@@ -99,6 +99,8 @@ class BlockscoutClient:
         EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: "https://opcelestia-raspberry.gelatoscout.com/api/v1/graphql",
         EthereumNetwork.ARBITRUM_BLUEBERRY_TESTNET: "https://arb-blueberry.gelatoscout.com/api/v1/graphql",
         EthereumNetwork.POLYGON_BLACKBERRY_TESTNET: "https://polygon-blackberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.REDSTONE_MAINNET: "https://api.explorer.redstonechain.com/api/v1/graphql",
+        EthereumNetwork.REDSTONE_GARNET_TESTNET: "https://api.explorer.garnet.qry.live/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
