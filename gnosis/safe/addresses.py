@@ -1055,15 +1055,15 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0",
         ),  # safe singleton address
     ],  # BOB Testnet
-    EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: [
+    EthereumNetwork.OP_CELESTIA_RASPBERRY: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1028176, "1.3.0+L2"),
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1028180, "1.3.0"),
     ],
-    EthereumNetwork.ARBITRUM_BLUEBERRY_TESTNET: [
+    EthereumNetwork.ARBITRUM_BLUEBERRY: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 19372, "1.3.0+L2"),
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 0, "1.3.0"),
     ],
-    EthereumNetwork.POLYGON_BLACKBERRY_TESTNET: [
+    EthereumNetwork.POLYGON_BLACKBERRY: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 765158, "1.3.0+L2"),
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 765162, "1.3.0"),
     ],
@@ -1071,7 +1071,7 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 673661, "1.3.0+L2"),
         ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 673709, "1.3.0"),
     ],
-    EthereumNetwork.REDSTONE_MAINNET: [
+    EthereumNetwork.REDSTONE: [
         (
             "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
             930071,
@@ -1093,7 +1093,7 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0",
         ),  # safe singleton address
     ],
-    EthereumNetwork.REDSTONE_GARNET_TESTNET: [
+    EthereumNetwork.GARNET_HOLESKY: [
         (
             "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
             937238,
@@ -1769,19 +1769,19 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
             8126830,
         ),  # v1.3.0 default singleton address
     ],  # BOB Testnet
-    EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: [
+    EthereumNetwork.OP_CELESTIA_RASPBERRY: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1028156),  # v1.3.0
     ],
-    EthereumNetwork.ARBITRUM_BLUEBERRY_TESTNET: [
+    EthereumNetwork.ARBITRUM_BLUEBERRY: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 19364),  # v1.3.0
     ],
-    EthereumNetwork.POLYGON_BLACKBERRY_TESTNET: [
+    EthereumNetwork.POLYGON_BLACKBERRY: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 765141),  # v1.3.0
     ],
     EthereumNetwork.HEDERA_TESTNET: [
         ("0xa87147759Ae110CC6397f0720971c4711B73218F", 673523),  # v1.3.0
     ],
-    EthereumNetwork.REDSTONE_MAINNET: [
+    EthereumNetwork.REDSTONE: [
         (
             "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
             929904,
@@ -1791,7 +1791,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
             930025,
         ),  # v1.3.0 default singleton address
     ],
-    EthereumNetwork.REDSTONE_GARNET_TESTNET: [
+    EthereumNetwork.GARNET_HOLESKY: [
         (
             "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
             936805,

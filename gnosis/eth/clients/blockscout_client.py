@@ -95,11 +95,11 @@ class BlockscoutClient:
         EthereumNetwork.FRAXTAL_SEPOLIA: "https://explorer.testnet-sepolia.frax.com/api/v1/graphql",
         EthereumNetwork.BOB: "https://explorer.gobob.xyz/api/v1/graphql",
         EthereumNetwork.ETHERLITE_CHAIN: "https://testnet-explorer.gobob.xyz/api/v1/graphql",  # BOB Testnet
-        EthereumNetwork.OP_CELESTIA_RASPBERRY_TESTNET: "https://opcelestia-raspberry.gelatoscout.com/api/v1/graphql",
-        EthereumNetwork.ARBITRUM_BLUEBERRY_TESTNET: "https://arb-blueberry.gelatoscout.com/api/v1/graphql",
-        EthereumNetwork.POLYGON_BLACKBERRY_TESTNET: "https://polygon-blackberry.gelatoscout.com/api/v1/graphql",
-        EthereumNetwork.REDSTONE_MAINNET: "https://api.explorer.redstonechain.com/api/v1/graphql",
-        EthereumNetwork.REDSTONE_GARNET_TESTNET: "https://api.explorer.garnet.qry.live/api/v1/graphql",
+        EthereumNetwork.OP_CELESTIA_RASPBERRY: "https://opcelestia-raspberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.ARBITRUM_BLUEBERRY: "https://arb-blueberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.POLYGON_BLACKBERRY: "https://polygon-blackberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.REDSTONE: "https://api.explorer.redstonechain.com/api/v1/graphql",
+        EthereumNetwork.GARNET_HOLESKY: "https://api.explorer.garnet.qry.live/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
