@@ -84,7 +84,6 @@ class BlockscoutClient:
         EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/api/v1/graphql",
         EthereumNetwork.OP_SEPOLIA_TESTNET: "https://optimism-sepolia.blockscout.com/api/v1/graphql",
         EthereumNetwork.UNREAL_TESTNET: "https://unreal.blockscout.com/api/v1/graphql",
-        EthereumNetwork.TAIKO_KATLA_L2: "https://explorer.katla.taiko.xyz/node-api/proxy/graphql",
         EthereumNetwork.SEI_DEVNET: "https://seitrace.com/api/v1/graphql",
         EthereumNetwork.LISK_SEPOLIA_TESTNET: "https://sepolia-blockscout.lisk.com/api/v1/graphql",
         EthereumNetwork.ZETACHAIN_MAINNET: "https://zetachain.blockscout.com/api/v1/graphql",
