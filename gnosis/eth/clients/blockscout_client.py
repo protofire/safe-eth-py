@@ -100,6 +100,7 @@ class BlockscoutClient:
         EthereumNetwork.POLYGON_BLACKBERRY: "https://polygon-blackberry.gelatoscout.com/api/v1/graphql",
         EthereumNetwork.REDSTONE: "https://api.explorer.redstonechain.com/api/v1/graphql",
         EthereumNetwork.GARNET_HOLESKY: "https://api.explorer.garnet.qry.live/api/v1/graphql",
+        EthereumNetwork.LISK: "https://blockscout.lisk.com/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
