@@ -62,6 +62,7 @@ class EtherscanClient:
         EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://testnet.blastscan.io",
         EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
         EthereumNetwork.FRAXTAL_MAINNET: "https://fraxscan.com",
+        EthereumNetwork.BLAST: "https://blastscan.io",
     }
 
     NETWORK_WITH_API_URL = {
@@ -108,6 +109,7 @@ class EtherscanClient:
         EthereumNetwork.FRAXTAL_MAINNET: "https://api.fraxscan.com",
         EthereumNetwork.ZKLINK_NOVA: "https://explorer-api.zklink.io/",
         EthereumNetwork.ZKLINK_NOVA_GOERLI: "https://goerli.explorer-api.zklink.io/",
+        EthereumNetwork.BLAST: "https://api.blastscan.io",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
