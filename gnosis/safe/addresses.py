@@ -1193,7 +1193,7 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0",
         ),  # safe singleton address
     ],
-    EthereumNetwork.LISK: [
+    EthereumNetwork.TAIKO_HEKLA_L2: [
         (
             "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
             158815,
