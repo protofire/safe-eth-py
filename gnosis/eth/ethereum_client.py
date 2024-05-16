@@ -195,7 +195,7 @@ class EthereumClientProvider:
                 ),
                 retry_count=int(os.environ.get("ETHEREUM_RPC_RETRY_COUNT", 1)),
                 batch_request_max_size=int(
-                    os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 500)
+                    os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 200)
                 ),
             )
         return cls.instance
