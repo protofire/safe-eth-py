@@ -864,12 +864,8 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # safe singleton address
     ],
     EthereumNetwork.UNREAL_TESTNET: [
-        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 742, "1.3.0+L2"),
-        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 743, "1.3.0"),
-    ],
-    EthereumNetwork.TAIKO_KATLA_L2: [
-        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 136482, "1.3.0+L2"),
-        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 136484, "1.3.0"),
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1776, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1777, "1.3.0"),
     ],
     EthereumNetwork.BERACHAIN_ARTIO: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 379846, "1.3.0+L2"),
@@ -1086,6 +1082,358 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
     EthereumNetwork.GARNET_HOLESKY: [
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 937241, "1.3.0"),  # v1.3.0
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 937238, "1.3.0+L2"),  # v1.3.0+L2
+    ],
+    EthereumNetwork.HOLESKY: [
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            101069,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            100885,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            101071,
+            "1.3.0",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            100887,
+            "1.3.0",
+        ),  # default singleton address
+    ],
+    EthereumNetwork.ZETACHAIN_MAINNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1479535, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1479591, "1.3.0"),
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_DEVNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1528994, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1529000, "1.3.0"),  # temporary-deployment
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3283039, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3283044, "1.3.0"),
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1489892, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1489899, "1.3.0"),  # temporary-deployment
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3244331, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3244337, "1.3.0"),
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1602095, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1602100, "1.3.0"),
+    ],
+    EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1508789, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1508789, "1.3.0"),
+    ],  # SHIBUYA
+    EthereumNetwork.ZKATANA: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 41, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 42, "1.3.0"),
+    ],
+    EthereumNetwork.MANTLE_SEPOLIA_TESTNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1927686, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1927692, "1.3.0"),
+    ],
+    EthereumNetwork.TAIKO_KATLA_L2: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 136482, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 136484, "1.3.0"),
+    ],
+    EthereumNetwork.SEI_DEVNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 4552451, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 4552489, "1.3.0"),
+    ],
+    EthereumNetwork.LISK_SEPOLIA_TESTNET: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 657757, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 657761, "1.3.0"),
+    ],
+    EthereumNetwork.BLAST: [
+        ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 377556, "1.4.1+L2"),
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 377716, "1.4.1"),
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            257369,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            132449,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            257372,
+            "1.3.0",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            132456,
+            "1.3.0",
+        ),  # default singleton address
+    ],
+    EthereumNetwork.FRAXTAL_MAINNET: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            1675112,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            2353663,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.REAL_MAINNET: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 21, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 22, "1.3.0"),
+    ],
+    EthereumNetwork.REYA_NETWORK: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 84, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 85, "1.3.0"),
+    ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 100982, "1.3.0+L2"),
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 100984, "1.3.0"),
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 19339, "1.3.0+L2"),
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 19340, "1.3.0"),
+    ],
+    EthereumNetwork.LINEA_SEPOLIA: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 84559, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 84561, "1.3.0"),
+    ],
+    EthereumNetwork.CROSSFI_TESTNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 2322638, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 2322641, "1.3.0"),
+    ],
+    EthereumNetwork.FRAXTAL_SEPOLIA: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            533629,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            533636,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.BOB: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            200503,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            200509,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.ETHERLITE_CHAIN: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            8126859,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            8126859,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            8126863,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            8126863,
+            "1.3.0",
+        ),  # safe singleton address
+    ],  # BOB Testnet
+    EthereumNetwork.OP_CELESTIA_RASPBERRY: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1028176, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1028180, "1.3.0"),
+    ],
+    EthereumNetwork.ARBITRUM_BLUEBERRY: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 19372, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 0, "1.3.0"),
+    ],
+    EthereumNetwork.POLYGON_BLACKBERRY: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 765158, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 765162, "1.3.0"),
+    ],
+    EthereumNetwork.HEDERA_TESTNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 673661, "1.3.0+L2"),
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 673709, "1.3.0"),
+    ],
+    EthereumNetwork.REDSTONE: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            930071,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            930078,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.GARNET_HOLESKY: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            937238,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            937241,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.MORPH_HOLESKY: [
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            260124,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            260126,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.CYBER_MAINNET: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            1098954,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            1098959,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.CYBER_TESTNET: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            515924,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            515925,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.LISK: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            139953,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            139956,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.TAIKO_HEKLA_L2: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            158815,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            158860,
+            "1.3.0",
+        ),  # default singleton address
     ],
 }
 
@@ -1624,10 +1972,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ),  # v1.3.0  Default singleton address
     ],
     EthereumNetwork.UNREAL_TESTNET: [
-        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 735),  # v1.3.0
-    ],
-    EthereumNetwork.TAIKO_KATLA_L2: [
-        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 44820),  # v1.3.0
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1769),  # v1.3.0
     ],
     EthereumNetwork.BERACHAIN_ARTIO: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 379659),  # v1.3.0
@@ -1737,5 +2082,190 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.GARNET_HOLESKY: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 937080),  # v1.3.0
+    ],
+    EthereumNetwork.HOLESKY: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            101055,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            100843,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.ZETACHAIN_MAINNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1479524),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_DEVNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 1528956),  # v1.3.0-temporary-deployment
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3283004),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 1489834),  # v1.3.0-temporary-deployment
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3244297),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1602061),  # v1.3.0
+    ],
+    EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1508789),  # v1.3.0
+    ],  # SHIBUYA
+    EthereumNetwork.ZKATANA: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 34),  # v1.3.0
+    ],
+    EthereumNetwork.MANTLE_SEPOLIA_TESTNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1927649),  # v1.3.0
+    ],
+    EthereumNetwork.TAIKO_KATLA_L2: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 44820),  # v1.3.0
+    ],
+    EthereumNetwork.SEI_DEVNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 4552166),  # v1.3.0
+    ],
+    EthereumNetwork.LISK_SEPOLIA_TESTNET: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 657735),  # v1.3.0
+    ],
+    EthereumNetwork.BLAST: [
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 377537),  # v1.4.1
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            257344,
+        ),  # v1.3.0  Safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            132405,
+        ),  # v1.3.0  Default singleton address
+    ],
+    EthereumNetwork.FRAXTAL_MAINNET: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            0,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            1675084,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.REAL_MAINNET: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 14),  # v1.3.0
+    ],
+    EthereumNetwork.REYA_NETWORK: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 77),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 100968),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 19332),  # v1.3.0
+    ],
+    EthereumNetwork.LINEA_SEPOLIA: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 84543),  # v1.3.0
+    ],
+    EthereumNetwork.CROSSFI_TESTNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 2322620),  # v1.3.0
+    ],
+    EthereumNetwork.FRAXTAL_SEPOLIA: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            0,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            533585,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.BOB: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            199948,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            200468,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.ETHERLITE_CHAIN: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            8126830,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            8126830,
+        ),  # v1.3.0 default singleton address
+    ],  # BOB Testnet
+    EthereumNetwork.OP_CELESTIA_RASPBERRY: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1028156),  # v1.3.0
+    ],
+    EthereumNetwork.ARBITRUM_BLUEBERRY: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 19364),  # v1.3.0
+    ],
+    EthereumNetwork.POLYGON_BLACKBERRY: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 765141),  # v1.3.0
+    ],
+    EthereumNetwork.HEDERA_TESTNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 673523),  # v1.3.0
+    ],
+    EthereumNetwork.REDSTONE: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            929904,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            930025,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.GARNET_HOLESKY: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            936805,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            937080,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.MORPH_HOLESKY: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            260112,
+        ),  # v1.3.0 safe singleton address
+    ],
+    EthereumNetwork.CYBER_MAINNET: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            1098959,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            1098904,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.CYBER_TESTNET: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            515677,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            515914,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.LISK: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            450459,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            139932,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.TAIKO_HEKLA_L2: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            158794,
+        ),  # v1.3.0 safe singleton address
     ],
 }

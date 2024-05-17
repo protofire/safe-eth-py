@@ -43,8 +43,8 @@ class BlockscoutClient:
         EthereumNetwork.KLAYTN_MAINNET_CYPRESS: "https://scope.klaytn.com/graphiql",
         EthereumNetwork.ACALA_NETWORK: "https://blockscout.acala.network/graphiql",
         EthereumNetwork.KARURA_NETWORK_TESTNET: "https://blockscout.karura.network/graphiql",
-        EthereumNetwork.ASTAR: "https://blockscout.com/astar/graphiql",
-        EthereumNetwork.SHIDEN: "https://blockscout.com/shiden/graphiql",
+        EthereumNetwork.ASTAR: "https://astar.blockscout.com/api/v1/graphql",
+        EthereumNetwork.SHIDEN: "https://shiden.blockscout.com/api/v1/graphql",
         EthereumNetwork.EVMOS: "https://evm.evmos.org/graphiql",
         EthereumNetwork.EVMOS_TESTNET: "https://evm.evmos.dev/graphiql",
         EthereumNetwork.KCC_MAINNET: "https://scan.kcc.io/graphiql",
@@ -52,38 +52,31 @@ class BlockscoutClient:
         EthereumNetwork.CROSSBELL: "https://scan.crossbell.io/graphiql",
         EthereumNetwork.ETHEREUM_CLASSIC: "https://blockscout.com/etc/mainnet/graphiql",
         EthereumNetwork.MORDOR_TESTNET: "https://blockscout.com/etc/mordor/graphiql",
-        EthereumNetwork.SCROLL_SEPOLIA_TESTNET: "https://sepolia-blockscout.scroll.io/graphiql",
-        EthereumNetwork.MANTLE: "https://explorer.mantle.xyz/graphiql",
-        EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz/graphiql",
+        EthereumNetwork.MANTLE: "https://explorer.mantle.xyz/api/v1/graphql",
         EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: "https://mainnet.japanopenchain.org/graphiql",
         EthereumNetwork.JAPAN_OPEN_CHAIN_TESTNET: "https://explorer.testnet.japanopenchain.org/graphiql",
-        EthereumNetwork.ZETACHAIN_ATHENS_3_TESTNET: "https://zetachain-athens-3.blockscout.com/graphiql",
-        EthereumNetwork.SCROLL: "https://blockscout.scroll.io/graphiql",
-        EthereumNetwork.ROOTSTOCK_MAINNET: "https://rootstock.blockscout.com/graphiql",
-        EthereumNetwork.ROOTSTOCK_TESTNET: "https://rootstock-testnet.blockscout.com/graphiql",
-        EthereumNetwork.LINEA: "https://explorer.linea.build/graphiql",
+        EthereumNetwork.ZETACHAIN_ATHENS_3_TESTNET: "https://zetachain-athens-3.blockscout.com/api/v1/graphql",
+        EthereumNetwork.ROOTSTOCK_MAINNET: "https://rootstock.blockscout.com/api/v1/graphql",
+        EthereumNetwork.ROOTSTOCK_TESTNET: "https://rootstock-testnet.blockscout.com/api/v1/graphql",
+        EthereumNetwork.LINEA_SEPOLIA: "https://explorer.sepolia.linea.build/graphiql",
         EthereumNetwork.LINEA_TESTNET: "https://explorer.goerli.linea.build/graphiql",
-        EthereumNetwork.NEON_EVM_MAINNET: "https://neon.blockscout.com/graphiql",
-        EthereumNetwork.NEON_EVM_DEVNET: "https://neon-devnet.blockscout.com/graphiql",
-        EthereumNetwork.OASIS_SAPPHIRE: "https://explorer.sapphire.oasis.io/graphiql",
-        EthereumNetwork.OASIS_SAPPHIRE_TESTNET: "https://testnet.explorer.sapphire.oasis.dev/graphiql",
-        EthereumNetwork.CASCADIA_TESTNET: "https://explorer.cascadia.foundation/graphiql",
+        EthereumNetwork.NEON_EVM_MAINNET: "https://neon.blockscout.com/api/v1/graphql",
+        EthereumNetwork.NEON_EVM_DEVNET: "https://neon-devnet.blockscout.com/api/v1/graphql",
         EthereumNetwork.TENET: "https://tenetscan.io/graphiql",
-        EthereumNetwork.TENET_TESTNET: "https://testnet.tenetscan.io/graphiql",
-        EthereumNetwork.VELAS_EVM_MAINNET: "https://evmexplorer.velas.com/graphiql",
+        EthereumNetwork.TENET_TESTNET: "https://testnet.tenetscan.io/api/v1/graphql",
         EthereumNetwork.CRONOS_MAINNET: "https://cronos.org/explorer/graphiql",
         EthereumNetwork.CRONOS_TESTNET: "https://cronos.org/explorer/testnet3/graphiql",
         EthereumNetwork.THUNDERCORE_MAINNET: "https://explorer-mainnet.thundercore.com/graphiql",
         EthereumNetwork.THUNDERCORE_TESTNET: "https://explorer-testnet.thundercore.com/graphiql",
-        EthereumNetwork.PGN_PUBLIC_GOODS_NETWORK: "https://explorer.publicgoods.network/graphiql",
+        EthereumNetwork.PGN_PUBLIC_GOODS_NETWORK: "https://explorer.publicgoods.network/api/v1/graphql",
         EthereumNetwork.SEPOLIA_PGN_PUBLIC_GOODS_NETWORK: "https://explorer.sepolia.publicgoods.network/graphiql",
         EthereumNetwork.ARTHERA_MAINNET: "https://explorer.arthera.net/graphiql",
         EthereumNetwork.ARTHERA_TESTNET: "https://explorer-test.arthera.net/graphiql",
-        EthereumNetwork.MANTA_PACIFIC_MAINNET: "https://pacific-explorer.manta.network/graphiql",
-        EthereumNetwork.KROMA: "https://blockscout.kroma.network/graphiql",
-        EthereumNetwork.KROMA_SEPOLIA: "https://blockscout.sepolia.kroma.network/graphiql",
-        EthereumNetwork.ZORA: "https://explorer.zora.energy/graphiql",
-        EthereumNetwork.ZORA_SEPOLIA_TESTNET: "https://sepolia.explorer.zora.energy/graphiql",
+        EthereumNetwork.MANTA_PACIFIC_MAINNET: "https://pacific-explorer.manta.network/api/v1/graphql",
+        EthereumNetwork.KROMA: "https://blockscout.kroma.network/api/v1/graphql",
+        EthereumNetwork.KROMA_SEPOLIA: "https://blockscout.sepolia.kroma.network/api/v1/graphql",
+        EthereumNetwork.ZORA: "https://explorer.zora.energy/api/v1/graphql",
+        EthereumNetwork.ZORA_SEPOLIA_TESTNET: "https://sepolia.explorer.zora.energy/api/v1/graphql",
         EthereumNetwork.HAQQ_NETWORK: "https://explorer.haqq.network/graphiql",
         EthereumNetwork.HAQQ_CHAIN_TESTNET: "https://explorer.testedge2.haqq.network/graphiql",
         EthereumNetwork.MODE: "https://explorer.mode.network/graphiql",
@@ -112,6 +105,29 @@ class BlockscoutClient:
         EthereumNetwork.SAAKURU_MAINNET: "https://explorer.saakuru.network/graphiql",
         EthereumNetwork.REDSTONE: "https://explorer.redstone.xyz/api/v1/graphql",
         EthereumNetwork.GARNET_HOLESKY: "https://api.explorer.garnet.qry.live/api/v1/graphql",
+        EthereumNetwork.ZORA_SEPOLIA_TESTNET: "https://sepolia.explorer.zora.energy/graphiql",
+        EthereumNetwork.ZETACHAIN_MAINNET: "https://zetachain.blockscout.com/graphiql",
+        EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: "https://explorer.testnet.immutable.com/graphiql",
+        EthereumNetwork.IMMUTABLE_ZKEVM: "https://explorer.immutable.com/graphiql",
+        EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: "https://blockscout.com/shibuya/graphiql", #SHIBUYA
+        EthereumNetwork.ZKATANA: "https://zkatana.blockscout.com/graphiql",
+        EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/graphiql",
+        EthereumNetwork.TAIKO_KATLA_L2: "https://explorer.katla.taiko.xyz/graphiql",
+        EthereumNetwork.SEI_DEVNET: "https://seitrace.com/graphiql",
+        EthereumNetwork.LISK_SEPOLIA_TESTNET: "https://sepolia-blockscout.lisk.com/graphiql",
+        EthereumNetwork.REAL_MAINNET: "https://explorer.re.al/graphiql",
+        EthereumNetwork.REYA_NETWORK: "https://explorer.reya.network/graphiql",
+        EthereumNetwork.CROSSFI_TESTNET: "https://scan.testnet.ms/graphiql",
+        EthereumNetwork.FRAXTAL_SEPOLIA: "https://explorer.testnet-sepolia.frax.com/api/v1/graphql",
+        EthereumNetwork.BOB: "https://explorer.gobob.xyz/api/v1/graphql",
+        EthereumNetwork.ETHERLITE_CHAIN: "https://testnet-explorer.gobob.xyz/api/v1/graphql",  # BOB Testnet
+        EthereumNetwork.OP_CELESTIA_RASPBERRY: "https://opcelestia-raspberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.ARBITRUM_BLUEBERRY: "https://arb-blueberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.POLYGON_BLACKBERRY: "https://polygon-blackberry.gelatoscout.com/api/v1/graphql",
+        EthereumNetwork.REDSTONE: "https://api.explorer.redstonechain.com/api/v1/graphql",
+        EthereumNetwork.GARNET_HOLESKY: "https://api.explorer.garnet.qry.live/api/v1/graphql",
+        EthereumNetwork.LISK: "https://blockscout.lisk.com/api/v1/graphql",
+        EthereumNetwork.TAIKO_HEKLA_L2: "https://explorer.hekla.taiko.xyz/api/v1/graphql"
     }
 
     def __init__(self, network: EthereumNetwork):
@@ -134,15 +150,15 @@ class BlockscoutClient:
         return response.json()
 
     def get_contract_metadata(
-        self, address: ChecksumAddress
+            self, address: ChecksumAddress
     ) -> Optional[ContractMetadata]:
         query = '{address(hash: "%s") { hash, smartContract {name, abi} }}' % address
         result = self._do_request(self.grahpql_url, query)
         if (
-            result
-            and "error" not in result
-            and result.get("data", {}).get("address", {})
-            and result["data"]["address"]["smartContract"]
+                result
+                and "error" not in result
+                and result.get("data", {}).get("address", {})
+                and result["data"]["address"]["smartContract"]
         ):
             smart_contract = result["data"]["address"]["smartContract"]
             return ContractMetadata(

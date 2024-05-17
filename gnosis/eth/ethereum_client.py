@@ -195,7 +195,7 @@ class EthereumClientProvider:
                 ),
                 retry_count=int(os.environ.get("ETHEREUM_RPC_RETRY_COUNT", 1)),
                 batch_request_max_size=int(
-                    os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 500)
+                    os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 200)
                 ),
             )
         return cls.instance
@@ -1192,7 +1192,7 @@ class EthereumClient:
         slow_provider_timeout: int = 60,
         retry_count: int = 1,
         use_caching_middleware: bool = True,
-        batch_request_max_size: int = 500,
+        batch_request_max_size: int = 200,
     ):
         """
         :param ethereum_node_url: Ethereum RPC uri
@@ -1251,7 +1251,7 @@ class EthereumClient:
         return f"EthereumClient for url={self.ethereum_node_url}"
 
     def raw_batch_request(
-        self, payload: Sequence[Dict[str, Any]], batch_size: Optional[int] = None
+        self, payload: Sequence[Dict[str, Any]], batch_size: Optional[int] = 100
     ) -> Iterable[Optional[Dict[str, Any]]]:
         """
         Perform a raw batch JSON RPC call
