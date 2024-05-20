@@ -84,7 +84,6 @@ class BlockscoutClient:
         EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/graphiql",
         EthereumNetwork.OP_SEPOLIA_TESTNET: "https://optimism-sepolia.blockscout.com/graphiql",
         EthereumNetwork.UNREAL_TESTNET: "https://unreal.blockscout.com/graphiql",
-        EthereumNetwork.TAIKO_KATLA_L2: "https://explorer.katla.taiko.xyz/graphiql",
         EthereumNetwork.SEI_DEVNET: "https://seitrace.com/graphiql",
         EthereumNetwork.LISK_SEPOLIA_TESTNET: "https://sepolia-blockscout.lisk.com/graphiql",
         EthereumNetwork.BOTANIX_TESTNET: "https://blockscout.botanixlabs.dev/graphiql",
@@ -112,7 +111,6 @@ class BlockscoutClient:
         EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: "https://blockscout.com/shibuya/graphiql", #SHIBUYA
         EthereumNetwork.ZKATANA: "https://zkatana.blockscout.com/graphiql",
         EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/graphiql",
-        EthereumNetwork.TAIKO_KATLA_L2: "https://explorer.katla.taiko.xyz/graphiql",
         EthereumNetwork.SEI_DEVNET: "https://seitrace.com/graphiql",
         EthereumNetwork.LISK_SEPOLIA_TESTNET: "https://sepolia-blockscout.lisk.com/graphiql",
         EthereumNetwork.REAL_MAINNET: "https://explorer.re.al/graphiql",
