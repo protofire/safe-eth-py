@@ -3,13 +3,15 @@ from typing import Any, Dict, List, Optional
 
 from eth_typing import ChecksumAddress
 from hexbytes import HexBytes
-from web3 import Web3
 from web3.types import LogReceipt
 
 from gnosis.eth.account_abstraction.constants import (
+    ACCOUNT_DEPLOYED_TOPIC,
     DEPOSIT_EVENT_TOPIC,
+    EXECUTION_FROM_MODULE_FAILURE_TOPIC,
     EXECUTION_FROM_MODULE_SUCCESS_TOPIC,
 )
+from gnosis.eth.utils import fast_to_checksum_address
 
 
 @dataclasses.dataclass(eq=True, frozen=True)
@@ -22,7 +24,7 @@ class UserOperationReceipt:
     actual_gas_cost: int
     actual_gas_used: int
     success: bool
-    reason: str
+    reason: Optional[str]
     logs: List[LogReceipt]
 
     @classmethod
@@ -39,9 +41,22 @@ class UserOperationReceipt:
             int(user_operation_receipt_response["actualGasCost"], 16),
             int(user_operation_receipt_response["actualGasUsed"], 16),
             user_operation_receipt_response["success"],
-            user_operation_receipt_response["reason"],
+            user_operation_receipt_response.get("reason"),
             user_operation_receipt_response["logs"],
         )
+
+    def get_deployed_account(self) -> Optional[ChecksumAddress]:
+        """
+        :return: Deployed account in case a new account was deployed
+        """
+        for log in self.logs:
+            if (
+                len(log["topics"]) == 3
+                and HexBytes(log["topics"][0]) == ACCOUNT_DEPLOYED_TOPIC
+            ):
+                # Address is stored at the 40 last chars of the 3rd topic
+                return fast_to_checksum_address(log["topics"][2][-40:])
+        return None
 
     def get_deposit(self) -> int:
         """
@@ -52,8 +67,8 @@ class UserOperationReceipt:
             if (
                 len(log["topics"]) == 2
                 and HexBytes(log["topics"][0]) == DEPOSIT_EVENT_TOPIC
-                and Web3.to_checksum_address(log["address"]) == self.entry_point
-                and Web3.to_checksum_address(log["topics"][1][-40:]) == self.sender
+                and fast_to_checksum_address(log["address"]) == self.entry_point
+                and fast_to_checksum_address(log["topics"][1][-40:]) == self.sender
             ):
                 deposited += int(log["data"], 16)
         return deposited
@@ -67,8 +82,12 @@ class UserOperationReceipt:
         for log in reversed(self.logs):
             if (
                 len(log["topics"]) == 2
-                and HexBytes(log["topics"][0]) == EXECUTION_FROM_MODULE_SUCCESS_TOPIC
-                and Web3.to_checksum_address(log["address"]) == self.sender
+                and HexBytes(log["topics"][0])
+                in (
+                    EXECUTION_FROM_MODULE_SUCCESS_TOPIC,
+                    EXECUTION_FROM_MODULE_FAILURE_TOPIC,
+                )
+                and fast_to_checksum_address(log["address"]) == self.sender
             ):
-                return Web3.to_checksum_address(log["topics"][1][-40:])
+                return fast_to_checksum_address(log["topics"][1][-40:])
         return None
