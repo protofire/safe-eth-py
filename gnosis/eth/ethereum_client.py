@@ -1251,7 +1251,7 @@ class EthereumClient:
         return f"EthereumClient for url={self.ethereum_node_url}"
 
     def raw_batch_request(
-        self, payload: Sequence[Dict[str, Any]], batch_size: Optional[int] = 100
+        self, payload: Sequence[Dict[str, Any]], batch_size: Optional[int] = None
     ) -> Iterable[Optional[Dict[str, Any]]]:
         """
         Perform a raw batch JSON RPC call
