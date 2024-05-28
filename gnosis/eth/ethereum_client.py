@@ -1192,7 +1192,7 @@ class EthereumClient:
         slow_provider_timeout: int = 60,
         retry_count: int = 1,
         use_caching_middleware: bool = True,
-        batch_request_max_size: int = 200,
+        batch_request_max_size: int = 500,
     ):
         """
         :param ethereum_node_url: Ethereum RPC uri
