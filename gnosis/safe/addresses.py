@@ -2148,7 +2148,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         (
             "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
             158794,
-        ),  # v1.3.0 safe singleton address
+        ),  # v1.3.0 default singleton address
     ],
     EthereumNetwork.SEI_NETWORK: [
         (
