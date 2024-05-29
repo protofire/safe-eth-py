@@ -982,8 +982,26 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 19340, "1.3.0"),
     ],
     EthereumNetwork.LINEA_SEPOLIA: [
-        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 84559, "1.3.0+L2"),
-        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 84561, "1.3.0"),
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            84559,
+            "1.3.0+L2",
+        ),  # Default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            901164,
+            "1.3.0+L2",
+        ),  # Safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            84561,
+            "1.3.0",
+        ),  # Default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            901166,
+            "1.3.0",
+        ),  # Safe singleton address
     ],
     EthereumNetwork.CROSSFI_TESTNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 2322638, "1.3.0+L2"),
@@ -1824,7 +1842,14 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 19332),  # v1.3.0
     ],
     EthereumNetwork.LINEA_SEPOLIA: [
-        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 84543),  # v1.3.0
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            901145,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            84543,
+        ),  # v1.3.0 default singleton address
     ],
     EthereumNetwork.CROSSFI_TESTNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 2322620),  # v1.3.0
