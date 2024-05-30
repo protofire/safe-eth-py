@@ -63,11 +63,9 @@ class EtherscanClient:
         EthereumNetwork.FRAXTAL_MAINNET: "https://fraxscan.com",
         EthereumNetwork.BASE: "https://api.basescan.org/",
         EthereumNetwork.BLAST: "https://blastscan.io",
-        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://testnet.blastscan.io",
+        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://sepolia.blastscan.io",
         EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
-        EthereumNetwork.FRAXTAL_MAINNET: "https://fraxscan.com",
-        EthereumNetwork.BLAST: "https://blastscan.io",
-        EthereumNetwork.TAIKO_HEKLA_L2: "https://hekla.taikoscan.network",
+        EthereumNetwork.TAIKO_HEKLA_L2: "https://hekla.taikoscan.io",
         EthereumNetwork.TAIKO_MAINNET: "https://taikoscan.io",
     }
 
@@ -113,13 +111,11 @@ class EtherscanClient:
         EthereumNetwork.FRAXTAL_MAINNET: "https://api.fraxscan.com",
         EthereumNetwork.BASE: "https://api.basescan.org",
         EthereumNetwork.BLAST: "https://api.blastscan.io",
-        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://api.routescan.io/v2/network/testnet/evm/168587773/etherscan/api",
+        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://api-sepolia.blastscan.io",
         EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
-        EthereumNetwork.FRAXTAL_MAINNET: "https://api.fraxscan.com",
         EthereumNetwork.ZKLINK_NOVA: "https://explorer-api.zklink.io/",
         EthereumNetwork.ZKLINK_NOVA_GOERLI: "https://goerli.explorer-api.zklink.io/",
-        EthereumNetwork.BLAST: "https://api.blastscan.io",
-        EthereumNetwork.TAIKO_HEKLA_L2: "https://api.routescan.io/v2/network/testnet/evm/167009/etherscan/api",
+        EthereumNetwork.TAIKO_HEKLA_L2: "https://api-testnet.taikoscan.io",
         EthereumNetwork.TAIKO_MAINNET: "https://api.taikoscan.io",
     }
     HTTP_HEADERS = {
