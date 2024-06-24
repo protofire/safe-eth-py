@@ -67,6 +67,7 @@ class EtherscanClient:
         EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
         EthereumNetwork.TAIKO_HEKLA_L2: "https://hekla.taikoscan.io",
         EthereumNetwork.TAIKO_MAINNET: "https://taikoscan.io",
+        EthereumNetwork.AMOY: "https://amoy.polygonscan.com",
     }
 
     NETWORK_WITH_API_URL = {
@@ -117,6 +118,7 @@ class EtherscanClient:
         EthereumNetwork.ZKLINK_NOVA_GOERLI: "https://goerli.explorer-api.zklink.io/",
         EthereumNetwork.TAIKO_HEKLA_L2: "https://api-testnet.taikoscan.io",
         EthereumNetwork.TAIKO_MAINNET: "https://api.taikoscan.io",
+        EthereumNetwork.AMOY: "https://api-amoy.polygonscan.com",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",

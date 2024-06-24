@@ -1397,6 +1397,18 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0",
         ),  # default singleton address
     ],
+    EthereumNetwork.AMOY: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            5109088,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            5109092,
+            "1.3.0",
+        ),  # default singleton address
+    ],
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -2200,6 +2212,12 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         (
             "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
             79144015,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.AMOY: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            5108940,
         ),  # v1.3.0 default singleton address
     ],
 }
