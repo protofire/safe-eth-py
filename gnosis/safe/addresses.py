@@ -517,6 +517,14 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
     EthereumNetwork.KAVA: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 2116303, "1.3.0+L2"),
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 2116307, "1.3.0"),
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 10266344, "1.3.0+L2"), # safe
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 10266347, "1.3.0"), # safe
+    ],
+    EthereumNetwork.KAVA_TESTNET: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 0, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 0, "1.3.0"),
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 0, "1.3.0+L2"), # safe
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 0, "1.3.0"), # safe
     ],
     EthereumNetwork.CROSSBELL: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 28314790, "1.3.0+L2"),
@@ -638,34 +646,6 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
     EthereumNetwork.TENET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 727470, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 727472, "1.3.0"),
-    ],
-    EthereumNetwork.LINEA_GOERLI: [
-        (
-            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
-            363132,
-            "1.3.0+L2",
-        ),  # Default singleton address
-        (
-            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
-            3279607,
-            "1.3.0+L2",
-        ),  # Safe singleton address
-        (
-            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
-            363135,
-            "1.3.0",
-        ),  # Default singleton address
-        (
-            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
-            3279611,
-            "1.3.0",
-        ),  # Safe singleton address
-        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 2807831, "1.4.1"),  # v1.4.1
-        (
-            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
-            2807830,
-            "1.4.1+L2",
-        ),  # v1.4.1+L2
     ],
     EthereumNetwork.ASTAR: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1106426, "1.3.0+L2"),
@@ -867,6 +847,8 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
     EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 7709133, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 7709135, "1.3.0"),
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1508789, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1508789, "1.3.0"),
     ],
     EthereumNetwork.JAPAN_OPEN_CHAIN_TESTNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1315570, "1.3.0+L2"),
@@ -1093,12 +1075,12 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # safe singleton address
     ],
     EthereumNetwork.UNREAL_TESTNET: [
-        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 742, "1.3.0+L2"),
-        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 743, "1.3.0"),
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1776, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1777, "1.3.0"),
     ],
-    EthereumNetwork.TAIKO_KATLA_L2: [
-        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 136482, "1.3.0+L2"),
-        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 136484, "1.3.0"),
+    EthereumNetwork.BERACHAIN_BARTIO: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 100426, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 100431, "1.3.0")
     ],
     EthereumNetwork.BERACHAIN_ARTIO: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 379846, "1.3.0+L2"),
@@ -1412,6 +1394,16 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.CYBER_MAINNET: [
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 1098959, "1.3.0"),  # v1.3.0
         (
             "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
@@ -1426,12 +1418,16 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.CYBER_TESTNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 0, "1.3.0+L2"),  # safe singleton address
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 0, "1.3.0"),  # safe singleton address
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 515925, "1.3.0"),  # v1.3.0
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 515924, "1.3.0+L2"),  # v1.3.0+L2
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 324597, "1.4.1"),  # v1.4.1
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 673157, "1.4.1+L2"),  # v1.4.1+L2
     ],
     EthereumNetwork.LISK: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 139953, "1.3.0+L2"),  # default singleton address
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 0, "1.3.0+L2"),  # safe singleton address
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 139956, "1.3.0"),  # v1.3.0
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 139953, "1.3.0+L2"),  # v1.3.0+L2
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 1236905, "1.4.1"),  # v1.4.1
@@ -1464,6 +1460,16 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 276587, "1.4.1+L2"),  # v1.4.1+L2
     ],
     EthereumNetwork.AMOY: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            5109088,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            5109092,
+            "1.3.0",
+        ),  # default singleton address
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 6006133, "1.4.1"),  # v1.4.1
         (
             "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
@@ -1480,10 +1486,30 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.HOLESKY: [
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            101069,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            100885,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            101071,
+            "1.3.0",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            100887,
+            "1.3.0",
+        ),  # default singleton address
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 100429, "1.4.1"),  # v1.4.1
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 100427, "1.4.1+L2"),  # v1.4.1+L2
     ],
-    EthereumNetwork.RE_AL: [
+    EthereumNetwork.REAL_MAINNET: [
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 81988, "1.4.1"),  # v1.4.1
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 81987, "1.4.1+L2"),  # v1.4.1+L2
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 22, "1.3.0"),  # v1.3.0
@@ -1496,6 +1522,26 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1776, "1.3.0+L2"),  # v1.3.0+L2
     ],
     EthereumNetwork.SEI_NETWORK: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            79144045,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            79144049,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            87394667,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            87394672,
+            "1.3.0",
+        ),  # safe singleton address
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 80547079, "1.4.1"),  # v1.4.1
         (
             "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
@@ -1504,6 +1550,8 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.ZETACHAIN_MAINNET: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1479535, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1479591, "1.3.0"),
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 3315631, "1.4.1"),  # v1.4.1
         (
             "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
@@ -1512,6 +1560,8 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.LINEA_SEPOLIA: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 84559, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 84561, "1.3.0"),
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 1305454, "1.4.1"),  # v1.4.1
         (
             "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
@@ -1575,6 +1625,140 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
       ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1196806, "1.3.0"),  # v1.3.0
       ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1196805, "1.3.0+L2"),  # v1.3.0+L2
     ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_DEVNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1528994, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1529000, "1.3.0"),  # temporary-deployment
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3283039, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3283044, "1.3.0"),
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 1489892, "1.3.0+L2"),  # temporary-deployment
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 1489899, "1.3.0"),  # temporary-deployment
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3244331, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3244337, "1.3.0"),
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM: [
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1602095, "1.3.0+L2"),
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1602100, "1.3.0"),
+    ],
+    EthereumNetwork.ZKATANA: [
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 41, "1.3.0+L2"),
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 42, "1.3.0"),
+    ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 100982, "1.3.0+L2"),
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 100984, "1.3.0"),
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 19339, "1.3.0+L2"),
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 19340, "1.3.0"),
+    ],
+    EthereumNetwork.FRAXTAL_SEPOLIA: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            533629,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            533636,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.BOB: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            200503,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            0,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            200509,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            0,
+            "1.3.0",
+        ),  # safe singleton address
+    ],
+    EthereumNetwork.ETHERLITE_CHAIN: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            8126859,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            8126859,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            8126863,
+            "1.3.0",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            8126863,
+            "1.3.0",
+        ),  # safe singleton address
+    ],  # BOB Testnet
+    EthereumNetwork.HEDERA_TESTNET: [
+        ("0xE418eBDFBa5bf9d512fdF0dd19F700de60a49959", 673661, "1.3.0+L2"),
+        ("0x0e560eDaa22849d78B6aa7d60CBEFC7Dcf540818", 673709, "1.3.0"),
+    ],
+    EthereumNetwork.XAI: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            21,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            22,
+            "1.3.0",
+        ),  # default singleton address
+    ],
+    EthereumNetwork.XAI_TESTNET: [
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            2433595,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            2433598,
+            "1.3.0",
+        ),  # default singleton address
+    ],
+    EthereumNetwork.MINT_MAINNET: [
+      (
+          "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+          0,
+          "1.3.0+L2",
+      ),
+      (
+          "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+          0,
+          "1.3.0",
+      ),
+    ]
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -1867,6 +2051,11 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.KAVA: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 2116356),  # v1.3.0
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 10663161),  # v1.3.0 safe
+    ],
+    EthereumNetwork.KAVA_TESTNET: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 0),  # v1.3.0
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 0),  # v1.3.0 safe
     ],
     EthereumNetwork.CROSSBELL: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 28314747),  # v1.3.0
@@ -1930,17 +2119,6 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.TENET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 727457),  # v1.3.0
-    ],
-    EthereumNetwork.LINEA_GOERLI: [
-        (
-            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
-            3279584,
-        ),  # v1.3.0  Safe singleton address
-        (
-            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
-            363118,
-        ),  # v1.3.0  Default singleton address
-        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 2807823),  # v1.4.1
     ],
     EthereumNetwork.ASTAR: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1106417),  # v1.3.0
@@ -2046,6 +2224,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 85318),  # v1.3.0
     ],
     EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1508789),  # v1.3.0
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 7709119),  # v1.3.0
     ],
     EthereumNetwork.JAPAN_OPEN_CHAIN_TESTNET: [
@@ -2150,10 +2329,10 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ),  # v1.3.0  Default singleton address
     ],
     EthereumNetwork.UNREAL_TESTNET: [
-        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 735),  # v1.3.0
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1769),  # v1.3.0
     ],
-    EthereumNetwork.TAIKO_KATLA_L2: [
-        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 44820),  # v1.3.0
+    EthereumNetwork.BERACHAIN_BARTIO: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 100399),  # v1.3.0
     ],
     EthereumNetwork.BERACHAIN_ARTIO: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 379659),  # v1.3.0
@@ -2289,14 +2468,17 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1171388),  # v1.4.1
     ],
     EthereumNetwork.CYBER_MAINNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1098959),  # v1.3.0 safe singleton address
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1098904),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1886341),  # v1.4.1
     ],
     EthereumNetwork.CYBER_TESTNET: [
+      ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 515677),  # v1.3.0 safe singleton address
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 515914),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 324595),  # v1.4.1
     ],
     EthereumNetwork.LISK: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 450459),  # v1.3.0 safe singleton address
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 139932),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1236816),  # v1.4.1
     ],
@@ -2315,15 +2497,27 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 276578),  # v1.4.1
     ],
     EthereumNetwork.AMOY: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            5108940,
+        ),  # v1.3.0 default singleton address
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 6005942),  # v1.4.1
     ],
     EthereumNetwork.ASTAR_ZKEVM: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 2802278),  # v1.4.1
     ],
     EthereumNetwork.HOLESKY: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            101055,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            100843,
+        ),  # v1.3.0 default singleton address
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 100413),  # v1.4.1
     ],
-    EthereumNetwork.RE_AL: [
+    EthereumNetwork.REAL_MAINNET: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 81980),  # v1.4.1
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 14),  # v1.3.0
     ],
@@ -2332,12 +2526,22 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1769),  # v1.3.0
     ],
     EthereumNetwork.SEI_NETWORK: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            79144015,
+        ),  # v1.3.0 default singleton address
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            87394619,
+        ),  # v1.3.0 safe singleton address
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 80546985),  # v1.4.1
     ],
     EthereumNetwork.ZETACHAIN_MAINNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1479524),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 3315623),  # v1.4.1
     ],
     EthereumNetwork.LINEA_SEPOLIA: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 84543),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1305441),  # v1.4.1
     ],
     EthereumNetwork.ZILLIQA_EVM: [
@@ -2366,5 +2570,76 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     ],
     EthereumNetwork.AUTONOMOUS_TESTNET: [
       ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1196789),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_DEVNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 1528956),  # v1.3.0-temporary-deployment
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3283004),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM_TESTNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 1489834),  # v1.3.0-temporary-deployment
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3244297),  # v1.3.0
+    ],
+    EthereumNetwork.IMMUTABLE_ZKEVM: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1602061),  # v1.3.0
+    ],
+    EthereumNetwork.ZKATANA: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 34),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 100968),  # v1.3.0
+    ],
+    EthereumNetwork.ZKLINK_NOVA_GOERLI: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 19332),  # v1.3.0
+    ],
+    EthereumNetwork.FRAXTAL_SEPOLIA: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            0,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            533585,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.BOB: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            199948,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            200468,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.ETHERLITE_CHAIN: [
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            8126830,
+        ),  # v1.3.0 safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            8126830,
+        ),  # v1.3.0 default singleton address
+    ],  # BOB Testnet
+    EthereumNetwork.HEDERA_TESTNET: [
+        ("0xa87147759Ae110CC6397f0720971c4711B73218F", 673523),  # v1.3.0
+    ],
+    EthereumNetwork.XAI: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            14,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.XAI_TESTNET: [
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            2433572,
+        ),  # v1.3.0 default singleton address
+    ],
+    EthereumNetwork.MINT_MAINNET: [
+      (
+          "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+          2888224,
+      ), 
     ]
 }
