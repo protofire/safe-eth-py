@@ -1,7 +1,7 @@
+import os
+from functools import cache
 from typing import Any, Dict, List, Optional
 from urllib.parse import urljoin
-
-from gnosis.util import cache
 
 from ...util.http import prepare_http_session
 from .. import EthereumNetwork
@@ -34,7 +34,9 @@ class SourcifyClient:
         network: EthereumNetwork = EthereumNetwork.MAINNET,
         base_url_api: str = "https://sourcify.dev",
         base_url_repo: str = "https://repo.sourcify.dev/",
-        request_timeout: int = 10,
+        request_timeout: int = int(
+            os.environ.get("SOURCIFY_CLIENT_REQUEST_TIMEOUT", 10)
+        ),
     ):
         self.network = network
         self.base_url_api = base_url_api

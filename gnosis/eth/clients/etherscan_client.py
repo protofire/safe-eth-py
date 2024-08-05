@@ -1,4 +1,5 @@
 import json
+import os
 import time
 from typing import Any, Dict, Optional
 from urllib.parse import urljoin
@@ -35,7 +36,7 @@ class EtherscanClient:
         EthereumNetwork.ARBITRUM_GOERLI: "https://goerli.arbiscan.io",
         EthereumNetwork.AVALANCHE_C_CHAIN: "https://snowtrace.io",
         EthereumNetwork.GNOSIS: "https://gnosisscan.io",
-        EthereumNetwork.MOONBEAM: "https://moonscan.io",
+        EthereumNetwork.MOONBEAM: "https://moonbeam.moonscan.io",
         EthereumNetwork.MOONRIVER: "https://moonriver.moonscan.io",
         EthereumNetwork.MOONBASE_ALPHA: "https://moonbase.moonscan.io",
         EthereumNetwork.CRONOS_MAINNET: "https://cronoscan.com",
@@ -48,9 +49,8 @@ class EtherscanClient:
         EthereumNetwork.ZKSYNC_MAINNET: "https://explorer.zksync.io/",
         EthereumNetwork.FANTOM_OPERA: "https://ftmscan.com",
         EthereumNetwork.FANTOM_TESTNET: "https://testnet.ftmscan.com/",
-        EthereumNetwork.LINEA: "https://www.lineascan.build",
+        EthereumNetwork.LINEA: "https://lineascan.build",
         EthereumNetwork.LINEA_SEPOLIA: "https://sepolia.lineascan.build",
-        EthereumNetwork.LINEA_TESTNET: "https://goerli.lineascan.build",
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: "https://mainnet.japanopenchain.org",
@@ -59,11 +59,15 @@ class EtherscanClient:
         EthereumNetwork.SCROLL: "https://scrollscan.com",
         EthereumNetwork.KROMA: "https://kromascan.com",
         EthereumNetwork.KROMA_SEPOLIA: "https://sepolia.kromascan.com",
-        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://testnet.blastscan.io",
-        EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
         EthereumNetwork.FRAXTAL_MAINNET: "https://fraxscan.com",
+        EthereumNetwork.FRAXTAL: "https://fraxscan.com",
+        EthereumNetwork.BASE: "https://api.basescan.org/",
         EthereumNetwork.BLAST: "https://blastscan.io",
-        EthereumNetwork.TAIKO_HEKLA_L2: "https://hekla.taikoscan.network",
+        EthereumNetwork.TAIKO_MAINNET: "https://taikoscan.io",
+        EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://sepolia.blastscan.io",
+        EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
+        EthereumNetwork.TAIKO_HEKLA_L2: "https://hekla.taikoscan.io",
+        EthereumNetwork.AMOY: "https://amoy.polygonscan.com",
     }
 
     NETWORK_WITH_API_URL = {
@@ -96,7 +100,6 @@ class EtherscanClient:
         EthereumNetwork.FANTOM_TESTNET: "https://api-testnet.ftmscan.com",
         EthereumNetwork.LINEA: "https://api.lineascan.build",
         EthereumNetwork.LINEA_SEPOLIA: "https://api-sepolia.lineascan.build",
-        EthereumNetwork.LINEA_TESTNET: "https://api-testnet.lineascan.build",
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz",
         EthereumNetwork.JAPAN_OPEN_CHAIN_MAINNET: "https://mainnet.japanopenchain.org/api",
@@ -106,12 +109,17 @@ class EtherscanClient:
         EthereumNetwork.KROMA: "https://api.kromascan.com",
         EthereumNetwork.KROMA_SEPOLIA: "https://api-sepolia.kromascan.com",
         EthereumNetwork.BLAST_SEPOLIA_TESTNET: "https://api.routescan.io/v2/network/testnet/evm/168587773/etherscan/api",
-        EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
         EthereumNetwork.FRAXTAL_MAINNET: "https://api.fraxscan.com",
-        EthereumNetwork.ZKLINK_NOVA: "https://explorer-api.zklink.io/",
         EthereumNetwork.ZKLINK_NOVA_GOERLI: "https://goerli.explorer-api.zklink.io/",
+        EthereumNetwork.FRAXTAL: "https://api.fraxscan.com",
+        EthereumNetwork.BASE: "https://api.basescan.org",
         EthereumNetwork.BLAST: "https://api.blastscan.io",
-        EthereumNetwork.TAIKO_HEKLA_L2: "https://api.routescan.io/v2/network/testnet/evm/167009/etherscan/api",
+        EthereumNetwork.TAIKO_MAINNET: "https://api.taikoscan.io",
+        EthereumNetwork.BASE_SEPOLIA_TESTNET: "https://api-sepolia.basescan.org/api",
+        EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
+        EthereumNetwork.ZKLINK_NOVA: "https://explorer-api.zklink.io/",
+        EthereumNetwork.TAIKO_HEKLA_L2: "https://api-testnet.taikoscan.io",
+        EthereumNetwork.AMOY: "https://api-amoy.polygonscan.com",
     }
     HTTP_HEADERS = {
         "User-Agent": "curl/7.77.0",
@@ -121,7 +129,9 @@ class EtherscanClient:
         self,
         network: EthereumNetwork,
         api_key: Optional[str] = None,
-        request_timeout: int = 10,
+        request_timeout: int = int(
+            os.environ.get("ETHERSCAN_CLIENT_REQUEST_TIMEOUT", 10)
+        ),
     ):
         self.network = network
         self.api_key = api_key
