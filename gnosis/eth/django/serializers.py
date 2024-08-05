@@ -1,4 +1,5 @@
 import logging
+from decimal import Decimal
 
 from django.utils.translation import gettext_lazy as _
 
@@ -32,7 +33,7 @@ class EthereumAddressField(serializers.Field):
         self,
         allow_zero_address: bool = False,
         allow_sentinel_address: bool = False,
-        **kwargs
+        **kwargs,
     ):
         self.allow_zero_address = allow_zero_address
         self.allow_sentinel_address = allow_sentinel_address
@@ -129,7 +130,7 @@ class Sha3HashField(HexadecimalField):
 
 class Uint96Field(serializers.DecimalField):
     def __init__(self, **kwargs):
-        kwargs["min_value"] = 0
+        kwargs["min_value"] = Decimal(0)
         kwargs["max_digits"] = 29
         kwargs["decimal_places"] = 0
         super().__init__(**kwargs)
@@ -137,7 +138,7 @@ class Uint96Field(serializers.DecimalField):
 
 class Uint32Field(serializers.DecimalField):
     def __init__(self, **kwargs):
-        kwargs["min_value"] = 0
+        kwargs["min_value"] = Decimal(0)
         kwargs["max_digits"] = 10
         kwargs["decimal_places"] = 0
         super().__init__(**kwargs)

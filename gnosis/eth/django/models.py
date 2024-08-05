@@ -6,13 +6,13 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from eth_typing import ChecksumAddress
+from eth_typing import ChecksumAddress, HexAddress, HexStr
 from eth_utils import to_normalized_address
 from hexbytes import HexBytes
 
 from ..utils import fast_bytes_to_checksum_address, fast_to_checksum_address
 from .forms import EthereumAddressFieldForm, HexFieldForm, Keccak256FieldForm
-from .validators import validate_checksumed_address
+from .validators import validate_address, validate_checksumed_address
 
 try:
     from django.db import DefaultConnectionProxy
@@ -24,47 +24,15 @@ except ImportError:
     connection = connections["default"]
 
 
-class EthereumAddressField(models.CharField):
+class EthereumAddressBinaryField(models.Field):
+    """
+    Stores Ethereum Addresses in binary. Requires keccak256 hashing to
+    calculate the EIP55 checksummed address, and it can take a high impact
+    on the CPU for a lot of addresses.
+    """
+
     default_validators = [validate_checksumed_address]
-    description = "DEPRECATED. Use `EthereumAddressV2Field`. Ethereum address (EIP55)"
-    default_error_messages = {
-        "invalid": _('"%(value)s" value must be an EIP55 checksummed address.'),
-    }
-
-    def __init__(self, *args, **kwargs):
-        kwargs["max_length"] = 42
-        super().__init__(*args, **kwargs)
-
-    def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
-        del kwargs["max_length"]
-        return name, path, args, kwargs
-
-    def from_db_value(self, value, expression, connection):
-        return self.to_python(value)
-
-    def to_python(self, value):
-        value = super().to_python(value)
-        if value:
-            try:
-                return fast_to_checksum_address(value)
-            except ValueError:
-                raise exceptions.ValidationError(
-                    self.error_messages["invalid"],
-                    code="invalid",
-                    params={"value": value},
-                )
-        else:
-            return value
-
-    def get_prep_value(self, value):
-        value = super().get_prep_value(value)
-        return self.to_python(value)
-
-
-class EthereumAddressV2Field(models.Field):
-    default_validators = [validate_checksumed_address]
-    description = "Ethereum address (EIP55)"
+    description = "Stores Ethereum Addresses (EIP55) in binary"
     default_error_messages = {
         "invalid": _('"%(value)s" value must be an EIP55 checksummed address.'),
     }
@@ -107,6 +75,41 @@ class EthereumAddressV2Field(models.Field):
         }
         defaults.update(kwargs)
         return super().formfield(**defaults)
+
+
+class EthereumAddressFastBinaryField(EthereumAddressBinaryField):
+    """
+    Stores Ethereum Addresses in binary. It returns not EIP55 regular addresses,
+    which is faster as not EIP55 checksum is involved.
+    """
+
+    default_validators = [validate_address]
+    description = "Stores Ethereum Addresses in binary"
+    default_error_messages = {
+        "invalid": _('"%(value)s" value must be a valid address.'),
+    }
+
+    def from_db_value(
+        self, value: memoryview, expression, connection
+    ) -> Optional[HexAddress]:
+        if value:
+            return HexAddress(HexStr("0x" + bytes(value).hex()))
+
+    def to_python(self, value) -> Optional[ChecksumAddress]:
+        if value is not None:
+            try:
+                if isinstance(value, bytes):
+                    if len(value) != 20:
+                        raise ValueError(
+                            "Cannot convert %s to a checksum address, 20 bytes were expected"
+                        )
+                return HexAddress(HexStr(to_normalized_address(value)[2:]))
+            except ValueError:
+                raise exceptions.ValidationError(
+                    self.error_messages["invalid"],
+                    code="invalid",
+                    params={"value": value},
+                )
 
 
 class UnsignedDecimal(models.DecimalField):
@@ -176,50 +179,6 @@ class Uint32Field(UnsignedDecimal):
         super().__init__(*args, **kwargs)
 
 
-class HexField(models.CharField):
-    """
-    Field to store hex values (without 0x). Returns hex with 0x prefix.
-
-    On Database side a CharField is used.
-    """
-
-    description = "Stores a hex value into a CharField. DEPRECATED, use a BinaryField"
-
-    def from_db_value(self, value, expression, connection):
-        return self.to_python(value)
-
-    def to_python(self, value):
-        return value if value is None else HexBytes(value).hex()
-
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-        elif isinstance(value, HexBytes):
-            return value.hex()[
-                2:
-            ]  # HexBytes.hex() retrieves hexadecimal with '0x', remove it
-        elif isinstance(value, bytes):
-            return value.hex()  # bytes.hex() retrieves hexadecimal without '0x'
-        else:  # str
-            return HexBytes(value).hex()[2:]
-
-    def formfield(self, **kwargs):
-        # We need max_lenght + 2 on forms because of `0x`
-        defaults = {"max_length": self.max_length + 2}
-        # TODO: Handle multiple backends with different feature flags.
-        if self.null and not connection.features.interprets_empty_strings_as_nulls:
-            defaults["empty_value"] = None
-        defaults.update(kwargs)
-        return super().formfield(**defaults)
-
-    def clean(self, value, model_instance):
-        value = self.to_python(value)
-        self.validate(value, model_instance)
-        # Validation didn't work because of `0x`
-        self.run_validators(value[2:])
-        return value
-
-
 class HexV2Field(models.BinaryField):
     def formfield(self, **kwargs):
         defaults = {
@@ -227,19 +186,6 @@ class HexV2Field(models.BinaryField):
         }
         defaults.update(kwargs)
         return super().formfield(**defaults)
-
-
-class Sha3HashField(HexField):
-    description = "DEPRECATED. Use `Keccak256Field`"
-
-    def __init__(self, *args, **kwargs):
-        kwargs["max_length"] = 64
-        super().__init__(*args, **kwargs)
-
-    def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
-        del kwargs["max_length"]
-        return name, path, args, kwargs
 
 
 class Keccak256Field(models.BinaryField):
@@ -298,3 +244,47 @@ class Keccak256Field(models.BinaryField):
         }
         defaults.update(kwargs)
         return super().formfield(**defaults)
+
+
+# --------- DEPRECATED, only for old migrations ----------------------
+class EthereumAddressField(models.CharField):
+    system_check_removed_details = {
+        "msg": (
+            "EthereumAddressField has been removed except for support in "
+            "historical migrations."
+        ),
+        "hint": "Use EthereumAddressFastBinaryField instead.",
+        "id": "fields.E4815",  # pick a unique ID for your field.
+    }
+
+
+class EthereumAddressV2Field(EthereumAddressBinaryField):
+    system_check_removed_details = {
+        "msg": (
+            "EthereumAddressField has been removed except for support in "
+            "historical migrations."
+        ),
+        "hint": "Use EthereumAddressFastBinaryField instead.",
+        "id": "fields.E4815",  # pick a unique ID for your field.
+    }
+
+
+class Sha3HashField(models.CharField):
+    system_check_removed_details = {
+        "msg": (
+            "Sha3HashField has been removed except for support in "
+            "historical migrations."
+        ),
+        "hint": "Use Keccak256Field instead.",
+        "id": "fields.E4817",  # pick a unique ID for your field.
+    }
+
+
+class HexField(models.CharField):
+    system_check_removed_details = {
+        "msg": (
+            "HexField has been removed except for support in " "historical migrations."
+        ),
+        "hint": "Use HexV2Field instead.",
+        "id": "fields.E4818",  # pick a unique ID for your field.
+    }

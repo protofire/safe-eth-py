@@ -66,15 +66,20 @@ def create_issue_branch(repo: Repository, chain_id: int, version: str) -> str:
 
 
 def create_pr(
-    repo: Repository, branch_name: str, chain_id: int, chain_enum_name: str
+    repo: Repository,
+    branch_name: str,
+    chain_enum_name: str,
+    version: str,
+    issue_number: int,
 ) -> None:
     try:
-        repo.create_pull(
-            title=f"Add new chain {chain_enum_name} {chain_id} addresses",
-            body=f"Automatic PR to add new address to {chain_enum_name} {chain_id} chain",
+        created_pull_request = repo.create_pull(
+            title=f"Add addresses {version} for chain {chain_enum_name}",
+            body=f"Automatic PR to add new address {version} to {chain_enum_name} chain\n Closes #{issue_number}",
             head=branch_name,
             base="main",
         )
+        created_pull_request.add_to_labels("add-new-address")
     except GithubException as e:
         print(f"Unable to create pull request: {e}")
 
@@ -157,7 +162,7 @@ def upsert_explorer_client_url(
         if existing_entry:
             print(f"Entry with URL '{client_url}' already exists.")
         else:
-            new_entry = f'        EthereumNetwork.{chain_enum_name}: "{client_url}"'
+            new_entry = f'        EthereumNetwork.{chain_enum_name}: "{client_url}",'
             url_lines.append(new_entry)
 
             updated_content = (
@@ -227,7 +232,7 @@ def upsert_contract_address_master_copy(
             )
         else:
             new_entry = (
-                f'    ("{address}", {block_number}, "{version}"), # v{version}\n    '
+                f'    ("{address}", {block_number}, "{version}"),  # v{version}\n    '
             )
             updated_content = (
                 content[: match_network.start()]
@@ -253,7 +258,7 @@ def upsert_contract_address_master_copy(
         if match:
             new_entry = (
                 f'    EthereumNetwork.{chain_enum_name}: [\n        ("{address}", {block_number}, '
-                + f'"{version}"),  # v{version} \n    ],\n'
+                + f'"{version}"),  # v{version}\n    ],\n'
             )
             updated_content = (
                 content[: match.start()]
@@ -284,7 +289,7 @@ def upsert_contract_address_proxy_factory(
     file_path = "gnosis/safe/addresses.py"
     file = repo.get_contents(file_path, ref=branch_name)
     content = file.decoded_content.decode("utf-8")
-
+    version = version.replace("+L2", "")
     print(
         f"Updating Proxy Factory address chain {chain_enum_name} address '{address}' and block_number {block_number}"
     )
@@ -339,7 +344,7 @@ def upsert_contract_address_proxy_factory(
         if match:
             new_entry = (
                 f'    EthereumNetwork.{chain_enum_name}: [\n        ("{address}", {block_number}'
-                + f"),  # v{version} \n    ],\n"
+                + f"),  # v{version}\n    ],\n"
             )
             updated_content = (
                 content[: match.start()]
@@ -362,6 +367,7 @@ def upsert_contract_address_proxy_factory(
 def execute_issue_changes() -> None:
     github_token = os.environ.get("GITHUB_TOKEN")
     repository_name = os.environ.get("GITHUB_REPOSITORY_NAME")
+    issue_number = int(os.environ.get("ISSUE_NUMBER"))
     issue_body_info = json.loads(os.environ.get("ISSUE_BODY_INFO"))
     chain_id = int(issue_body_info.get("chainId"))
     version = issue_body_info.get("version")
@@ -371,6 +377,8 @@ def execute_issue_changes() -> None:
     rpc_url = issue_body_info.get("rpcUrl")
     address_master_copy = issue_body_info.get("addressMasterCopy")
     tx_hash_master_copy = issue_body_info.get("txHashMasterCopy")
+    address_master_copy_l2 = issue_body_info.get("addressMasterCopyL2")
+    tx_hash_master_copy_l2 = issue_body_info.get("txHashMasterCopyL2")
     address_proxy = issue_body_info.get("addressProxy")
     tx_hash_proxy = issue_body_info.get("txHashProxy")
 
@@ -431,6 +439,18 @@ def execute_issue_changes() -> None:
                 version,
             )
 
+    if rpc_url and address_master_copy_l2 and tx_hash_master_copy_l2:
+        tx_block = get_contract_block_from_tx_hash(rpc_url, tx_hash_master_copy_l2)
+        if tx_block:
+            upsert_contract_address_master_copy(
+                repo,
+                branch_name,
+                chain_enum_name,
+                address_master_copy_l2,
+                tx_block,
+                version + "+L2",
+            )
+
     if rpc_url and address_proxy and tx_hash_proxy:
         tx_block = get_contract_block_from_tx_hash(rpc_url, tx_hash_proxy)
         if tx_block:
@@ -438,7 +458,7 @@ def execute_issue_changes() -> None:
                 repo, branch_name, chain_enum_name, address_proxy, tx_block, version
             )
 
-    create_pr(repo, branch_name, chain_id, chain_enum_name)
+    create_pr(repo, branch_name, chain_enum_name, version, issue_number)
 
 
 if __name__ == "__main__":

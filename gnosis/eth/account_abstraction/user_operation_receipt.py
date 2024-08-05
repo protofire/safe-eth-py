@@ -6,6 +6,7 @@ from hexbytes import HexBytes
 from web3.types import LogReceipt
 
 from gnosis.eth.account_abstraction.constants import (
+    ACCOUNT_DEPLOYED_TOPIC,
     DEPOSIT_EVENT_TOPIC,
     EXECUTION_FROM_MODULE_FAILURE_TOPIC,
     EXECUTION_FROM_MODULE_SUCCESS_TOPIC,
@@ -19,11 +20,11 @@ class UserOperationReceipt:
     entry_point: ChecksumAddress
     sender: ChecksumAddress
     nonce: int
-    paymaster: ChecksumAddress
+    paymaster: Optional[ChecksumAddress]
     actual_gas_cost: int
     actual_gas_used: int
     success: bool
-    reason: str
+    reason: Optional[str]
     logs: List[LogReceipt]
 
     @classmethod
@@ -36,13 +37,26 @@ class UserOperationReceipt:
             user_operation_receipt_response["entryPoint"],
             user_operation_receipt_response["sender"],
             int(user_operation_receipt_response["nonce"], 16),
-            user_operation_receipt_response["paymaster"],
+            user_operation_receipt_response.get("paymaster"),
             int(user_operation_receipt_response["actualGasCost"], 16),
             int(user_operation_receipt_response["actualGasUsed"], 16),
             user_operation_receipt_response["success"],
-            user_operation_receipt_response["reason"],
+            user_operation_receipt_response.get("reason"),
             user_operation_receipt_response["logs"],
         )
+
+    def get_deployed_account(self) -> Optional[ChecksumAddress]:
+        """
+        :return: Deployed account in case a new account was deployed
+        """
+        for log in self.logs:
+            if (
+                len(log["topics"]) == 3
+                and HexBytes(log["topics"][0]) == ACCOUNT_DEPLOYED_TOPIC
+            ):
+                # Address is stored at the 40 last chars of the 3rd topic
+                return fast_to_checksum_address(log["topics"][2][-40:])
+        return None
 
     def get_deposit(self) -> int:
         """
