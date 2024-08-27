@@ -142,6 +142,7 @@ class BlockscoutClient:
         EthereumNetwork.ETHERLINK_TESTNET: "https://testnet-explorer.etherlink.com/api/v1/graphql",
         EthereumNetwork.ALEPH_ZERO: "https://evm-explorer.alephzero.org/api/v1/graphql",
         EthereumNetwork.CONNEXT_SEPOLIA: "https://connext-sepolia.blockscout.com/api/v1/graphql",
+        EthereumNetwork.SNAXCHAIN_MAINNET: "https://explorer.snaxchain.io/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
