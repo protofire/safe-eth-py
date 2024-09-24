@@ -144,6 +144,7 @@ class BlockscoutClient:
         EthereumNetwork.EVERCLEAR_SEPOLIA: "https://connext-sepolia.blockscout.com/api/v1/graphql",
         EthereumNetwork.EVERCLEAR_MAINNET: "https://scan.everclear.org/api/v1/graphql",
         EthereumNetwork.SNAXCHAIN_MAINNET: "https://explorer.snaxchain.io/api/v1/graphql",
+        EthereumNetwork.INKCHAIN_TESTNET: "https://sepolia-explorer.inkchain.xyz/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
