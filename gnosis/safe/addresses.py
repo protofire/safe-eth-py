@@ -1002,12 +1002,12 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         (
             "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
             0,
-            "1.3.0",
+            "1.3.0+L2",
         ),  # safe singleton address
         (
             "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
             1835122,
-            "1.3.0",
+            "1.3.0+L2",
         ),  # default singleton address
         (
             "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
