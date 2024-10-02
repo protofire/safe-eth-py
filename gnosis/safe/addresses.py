@@ -998,7 +998,7 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.4.1+L2",
         ),  # v1.4.1+L2
     ],
-        EthereumNetwork.SONEIUM_MINATO: [
+        EthereumNetwork.MINATO: [
         (
             "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
             0,
@@ -2350,7 +2350,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ),  # v1.3.0 default singleton address
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 12924059),  # v1.4.1
     ],
-    EthereumNetwork.SONEIUM_MINATO: [
+    EthereumNetwork.MINATO: [
         (
             "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
             2337245,
