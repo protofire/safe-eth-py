@@ -146,6 +146,7 @@ class BlockscoutClient:
         EthereumNetwork.SNAXCHAIN_MAINNET: "https://explorer.snaxchain.io/api/v1/graphql",
         EthereumNetwork.INKCHAIN_TESTNET: "https://sepolia-explorer.inkchain.xyz/api/v1/graphql",
         EthereumNetwork.VANA_TESTNET: "https://moksha.vanascan.io/api/v1/graphql",
+        EthereumNetwork.SONEIUM_MINATO: "https://explorer-testnet.soneium.org/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
