@@ -1790,6 +1790,7 @@ class EthereumNetwork(Enum):
     MOLEREUM_NETWORK = 6022140761023
     DCHAIN_TESTNET = 2713017997578000
     DCHAIN = 2716446429837000
+    KAKAROT=920637907288165
 
     @classmethod
     def _missing_(cls, value):
