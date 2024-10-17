@@ -603,11 +603,17 @@ class Safe(SafeCreator, ContractBase, metaclass=ABCMeta):
                 raise_exception=False,
             )
 
-            master_copy = fast_bytes_to_checksum_address(bytes(master_copy_result)[-20:].rjust(20, b"\0"))
+            master_copy = fast_bytes_to_checksum_address(
+                bytes(master_copy_result)[-20:].rjust(20, b"\0")
+            )
             if master_copy == NULL_ADDRESS:
                 raise CannotRetrieveSafeInfoException(self.address)
-            fallback_handler = fast_bytes_to_checksum_address(bytes(fallback_handler_result)[-20:].rjust(20, b"\0"))
-            guard = fast_bytes_to_checksum_address(bytes(guard_result)[-20:].rjust(20, b"\0"))  # Guard was implemented in v1.1.1
+            fallback_handler = fast_bytes_to_checksum_address(
+                bytes(fallback_handler_result)[-20:].rjust(20, b"\0")
+            )
+            guard = fast_bytes_to_checksum_address(
+                bytes(guard_result)[-20:].rjust(20, b"\0")
+            )
 
             # From v1.1.1:
             # - `getModulesPaginated` is available
