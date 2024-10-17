@@ -148,6 +148,8 @@ class BlockscoutClient:
         EthereumNetwork.VANA_TESTNET: "https://moksha.vanascan.io/api/v1/graphql",
         EthereumNetwork.MINATO: "https://explorer-testnet.soneium.org/api/v1/graphql",
         EthereumNetwork.CITREA_TESTNET: "https://explorer.testnet.citrea.xyz/api/v1/graphql",
+        EthereumNetwork.KAKAROT: "https://sepolia.kakarotscan.org/api/v1/graphql",
+
     }
 
     def __init__(self, network: EthereumNetwork):
