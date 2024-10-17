@@ -661,7 +661,7 @@ class Safe(SafeCreator, ContractBase, metaclass=ABCMeta):
         self, block_identifier: Optional[BlockIdentifier] = "latest"
     ) -> ChecksumAddress:
         address = self.w3.eth.get_storage_at(
-            self.address, "0x00", block_identifier=block_identifier
+            self.address, "0x0", block_identifier=block_identifier
         )[-20:].rjust(20, b"\0")
         return fast_bytes_to_checksum_address(address)
 
