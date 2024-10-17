@@ -687,18 +687,10 @@ class Safe(SafeCreator, ContractBase, metaclass=ABCMeta):
     def retrieve_master_copy_address(
         self, block_identifier: Optional[BlockIdentifier] = "latest"
     ) -> ChecksumAddress:
-        """
-        :param block_identifier:
-        :return: Returns the implementation address. Multiple types of proxies are supported
-        """
-        for ProxyClass in (SafeProxy, StandardProxy, MinimalProxy):
-            proxy = ProxyClass(self.address, self.ethereum_client)
-            address = proxy.get_implementation_address(
-                block_identifier=block_identifier
-            )
-            if address != NULL_ADDRESS:
-                return address
-        return address
+        address = self.w3.eth.get_storage_at(
+            self.address, "0x0", block_identifier=block_identifier
+        )[-20:].rjust(20, b"\0")
+        return fast_bytes_to_checksum_address(address)
 
     def retrieve_modules(
         self,
