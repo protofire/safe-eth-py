@@ -565,12 +565,22 @@ class Safe(SafeCreator, ContractBase, metaclass=ABCMeta):
         # FIXME for not initialized Safes `getModules` get into an infinite loop on the RPC
         try:
             contract = self.contract
-            master_copy = self.retrieve_master_copy_address()
+            master_copy_result, fallback_handler_result, guard_result = self.ethereum_client.batch_call(
+                [
+                    contract.functions.getStorageAt(0x00, 1), # Fetch Master Copy
+                    contract.functions.getStorageAt(self.FALLBACK_HANDLER_STORAGE_SLOT, 1), # Fetch Fallback Handler
+                    contract.functions.getStorageAt(self.GUARD_STORAGE_SLOT, 1), # Fetch Guard
+                ],
+                from_address=self.address,
+                block_identifier=block_identifier,
+                raise_exception=False,
+            )
+
+            master_copy = fast_bytes_to_checksum_address(bytes(master_copy_result)[-20:].rjust(20, b"\0"))
             if master_copy == NULL_ADDRESS:
                 raise CannotRetrieveSafeInfoException(self.address)
-
-            fallback_handler = self.retrieve_fallback_handler()
-            guard = self.retrieve_guard()  # Guard was implemented in v1.1.1
+            fallback_handler = fast_bytes_to_checksum_address(bytes(fallback_handler_result)[-20:].rjust(20, b"\0"))
+            guard = fast_bytes_to_checksum_address(bytes(guard_result)[-20:].rjust(20, b"\0"))  # Guard was implemented in v1.1.1
 
             # From v1.1.1:
             # - `getModulesPaginated` is available
