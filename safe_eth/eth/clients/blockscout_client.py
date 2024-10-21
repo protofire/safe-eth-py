@@ -134,6 +134,7 @@ class BlockscoutClient:
         EthereumNetwork.BOB_SEPOLIA: "https://bob-sepolia.explorer.gobob.xyz/api/v1/graphql",
         EthereumNetwork.SNAXCHAIN: "https://explorer.snaxchain.io/api/v1/graphql",
         EthereumNetwork.CITREA_TESTNET: "https://explorer.testnet.citrea.xyz/api/v1/graphql",
+        EthereumNetwork.EDU: "https://educhain.blockscout.com/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
