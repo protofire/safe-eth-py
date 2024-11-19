@@ -136,6 +136,8 @@ class BlockscoutClient:
         EthereumNetwork.CITREA_TESTNET: "https://explorer.testnet.citrea.xyz/api/v1/graphql",
         EthereumNetwork.EDU: "https://educhain.blockscout.com/api/v1/graphql",
         EthereumNetwork.KAKAROT: "https://sepolia.kakarotscan.org/api/v1/graphql",
+        EthereumNetwork.FILECOIN_MAINNET: "https://filecoin.blockscout.com/api/v1/graphql",
+        EthereumNetwork.FILECOIN_CALIBRATION_TESTNET: "https://filecoin-testnet.blockscout.com/api/v1/graphql"
 
     }
 
