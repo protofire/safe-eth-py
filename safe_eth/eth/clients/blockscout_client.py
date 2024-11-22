@@ -139,6 +139,7 @@ class BlockscoutClient:
         EthereumNetwork.FILECOIN_MAINNET: "https://filecoin.blockscout.com/api/v1/graphql",
         EthereumNetwork.FILECOIN_CALIBRATION_TESTNET: "https://filecoin-testnet.blockscout.com/api/v1/graphql",
         EthereumNetwork.VANA_TESTNET: "https://moksha.vanascan.io/api/v1/graphql",
+        EthereumNetwork.SWELL_NETWORK_TESTNET: "https://swell-testnet-explorer.alt.technology/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
