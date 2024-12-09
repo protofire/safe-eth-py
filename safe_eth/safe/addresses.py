@@ -2067,6 +2067,10 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.4.1+L2",
         ),  # v1.4.1+L2
     ],
+    EthereumNetwork.SONIC_MAINNET: [
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 107741, "1.4.1"),  # v1.4.1
+        ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 107743, "1.4.1+L2"),  # v1.4.1+L2
+    ],
     EthereumNetwork.SONEIUM: [
         (
             "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
@@ -3219,5 +3223,8 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 454711),  # v1.4.1
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 454704),  # v1.3.0 eip155
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 454704),  # v1.3.0 canonical
+    ],
+    EthereumNetwork.SONIC_MAINNET: [
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 107724),  # v1.4.1
     ],
 }
