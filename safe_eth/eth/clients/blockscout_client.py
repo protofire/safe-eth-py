@@ -142,6 +142,10 @@ class BlockscoutClient:
         EthereumNetwork.VANA_TESTNET: "https://moksha.vanascan.io/api/v1/graphql",
         EthereumNetwork.SWELL_NETWORK_TESTNET: "https://swell-testnet-explorer.alt.technology/api/v1/graphql",
         EthereumNetwork.SWELL_NETWORK_TESTNET: "https://explorer.swellnetwork.io/api/v1/graphql",
+        EthereumNetwork.ABSTRACT: "https://explorer.mainnet.abs.xyz/api/v1/graphql",
+        EthereumNetwork.ABSTRACT_SEPOLIA: "https://explorer.testnet.abs.xyz/api/v1/graphql",
+
+
     }
 
     def __init__(self, network: EthereumNetwork):
