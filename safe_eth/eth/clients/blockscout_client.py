@@ -144,8 +144,8 @@ class BlockscoutClient:
         EthereumNetwork.SWELL_NETWORK_TESTNET: "https://explorer.swellnetwork.io/api/v1/graphql",
         EthereumNetwork.ABSTRACT: "https://explorer.mainnet.abs.xyz/api/v1/graphql",
         EthereumNetwork.ABSTRACT_SEPOLIA: "https://explorer.testnet.abs.xyz/api/v1/graphql",
-
-
+        EthereumNetwork.GAME7_TESTNET: "https://testnet.game7.io/api/v1/graphql",
+        EthereumNetwork.GAME7: "https://mainnet.game7.io/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
