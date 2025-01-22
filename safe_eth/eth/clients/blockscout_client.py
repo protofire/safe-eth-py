@@ -123,7 +123,6 @@ class BlockscoutClient:
         EthereumNetwork.ETHERLINK_MAINNET: "https://explorer.etherlink.com/api/v1/graphql",
         EthereumNetwork.ETHERLINK_TESTNET: "https://testnet-explorer.etherlink.com/api/v1/graphql",
         EthereumNetwork.FLARE_MAINNET: "https://flare-explorer.flare.network/graphiql",
-        EthereumNetwork.AUTONOMYS_TESTNET_NOVA_DOMAIN: "https://nova.subspace.network/api/v1/graphql",
         EthereumNetwork.GNOSIS_CHIADO_TESTNET: "https://gnosis-chiado.blockscout.com/api/v1/graphql",
         EthereumNetwork.SONGBIRD_CANARY_NETWORK: "https://songbird-explorer.flare.network/graphiql",
         EthereumNetwork.SONGBIRD_TESTNET_COSTON: "https://coston-explorer.flare.network/graphiql",
@@ -144,6 +143,7 @@ class BlockscoutClient:
         EthereumNetwork.SWELL_NETWORK_TESTNET: "https://explorer.swellnetwork.io/api/v1/graphql",
         EthereumNetwork.ABSTRACT: "https://explorer.mainnet.abs.xyz/api/v1/graphql",
         EthereumNetwork.ABSTRACT_SEPOLIA: "https://explorer.testnet.abs.xyz/api/v1/graphql",
+        EthereumNetwork.AUTONOMYS_TAURUS_TESNET: "https://blockscout.taurus.autonomys.xyz/api/v1/graphql",
         EthereumNetwork.GAME7_TESTNET: "https://testnet.game7.io/api/v1/graphql",
         EthereumNetwork.GAME7: "https://mainnet.game7.io/api/v1/graphql",
     }
