@@ -144,6 +144,7 @@ class BlockscoutClient:
         EthereumNetwork.ABSTRACT: "https://explorer.mainnet.abs.xyz/api/v1/graphql",
         EthereumNetwork.ABSTRACT_SEPOLIA: "https://explorer.testnet.abs.xyz/api/v1/graphql",
         EthereumNetwork.AUTONOMYS_TAURUS_TESNET: "https://blockscout.taurus.autonomys.xyz/api/v1/graphql",
+        EthereumNetwork.BERACHAIN:"test.blockscout.berachain.io",
         EthereumNetwork.GAME7_TESTNET: "https://testnet.game7.io/api/v1/graphql",
         EthereumNetwork.GAME7: "https://mainnet.game7.io/api/v1/graphql",
     }
