@@ -782,7 +782,6 @@ class EthereumNetwork(Enum):
     K_LAOS = 2718
     XR_SEPOLIA = 2730
     ELIZABETH_TESTNET = 2731
-    ABSTRACT = 2741
     NANON = 2748
     MINATO = 1946
     GM_NETWORK_MAINNET = 2777
