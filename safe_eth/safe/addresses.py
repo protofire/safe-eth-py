@@ -2415,6 +2415,62 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0+L2",
         ),  # v1.3.0+L2
     ],
+    EthereumNetwork.BERACHAIN: [
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 40883, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            40887,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            41420,
+            "1.3.0",
+        ),  # v1.3.0 canonical
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            41416,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2 canonical
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 45842, "1.3.0"),  # v1.3.0
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            45838,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2
+    ],
+    EthereumNetwork.EVM_ON_FLOW: [
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 3042677, "1.3.0"),  # v1.3.0
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            3042653,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 10722596, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            10722613,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
+    ],
+    EthereumNetwork.EVM_ON_FLOW_TESTNET: [
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 2346918, "1.3.0"),  # v1.3.0
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            2346892,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 20813606, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            20813625,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
+    ],
+    EthereumNetwork.BIRDLAYER: [
+        ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 242, "1.3.0"),  # v1.3.0
+        ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 241, "1.3.0+L2"),  # v1.3.0+L2
+    ],
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -3561,6 +3617,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     EthereumNetwork.SONIC_MAINNET: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 107724),  # v1.4.1
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 79),  # v1.3.0
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 5714149),  # v1.3.0
     ],
     EthereumNetwork.WATERFALL_9_TEST_NETWORK: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 7329623),  # v1.4.1
@@ -3596,6 +3653,22 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 7393713),  # v1.4.1
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 7393985),  # v1.3.0 eip155
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 7394571),  # v1.3.0 canonical
+    ],
+    EthereumNetwork.BERACHAIN: [
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 40852),  # v1.4.1
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 45810),  # v1.3.0 eip155
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 41386),  # v1.3.0 canonical
+    ],
+    EthereumNetwork.EVM_ON_FLOW: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3041363),  # v1.3.0
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 10722466),  # v1.4.1
+    ],
+    EthereumNetwork.EVM_ON_FLOW_TESTNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 2344624),  # v1.3.0
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 20813455),  # v1.4.1
+    ],
+    EthereumNetwork.BIRDLAYER: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 234),  # v1.3.0
     ],
 }
 
