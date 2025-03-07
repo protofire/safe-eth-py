@@ -69,6 +69,9 @@ class SourcifyClient:
         return response.json()
 
     def is_chain_supported(self, chain_id: int) -> bool:
+        # Temporary disabling sourcify requests that produce errors
+        if chain_id == 100:
+            return False
         chains = self.get_chains()
         if not chains:
             raise IOError("Cannot get chains for SourcifyClient")
