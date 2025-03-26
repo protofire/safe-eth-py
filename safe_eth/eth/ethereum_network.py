@@ -2090,6 +2090,7 @@ class EthereumNetwork(Enum):
     ABSTRACT_SEPOLIA=11124
     KAKAROT=920637907288165
     HOODIE_TESTNET=560048
+    PYROPE_TESTNET=695569
 
     @classmethod
     def _missing_(cls, value):
