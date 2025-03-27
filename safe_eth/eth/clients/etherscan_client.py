@@ -100,7 +100,7 @@ class EtherscanClient:
         EthereumNetwork.ACALA_NETWORK: "https://blockscout.acala.network",
         EthereumNetwork.ANCIENT8_TESTNET: "https://scanv2-testnet.ancient8.gg",
         EthereumNetwork.FLARE_TESTNET_COSTON2: "https://coston2-explorer.flare.network",
-        EthereumNetwork.PUPPYNET_SHIBARIUM: "https://puppyscan.shib.io",
+        EthereumNetwork.PUPPYNET: "https://puppyscan.shib.io",
         EthereumNetwork.ROLLUX_MAINNET: "https://explorer.rollux.com",
         EthereumNetwork.ZKSYNC_SEPOLIA_TESTNET: "https://sepolia-era.zksync.network/",
         EthereumNetwork.ATLETA_OLYMPIA: "https://blockscout.atleta.network",
@@ -157,6 +157,8 @@ class EtherscanClient:
         EthereumNetwork.PHOENIX_MAINNET: "https://phoenixplorer.com",
         EthereumNetwork.SNAXCHAIN: "https://explorer.snaxchain.io",
         EthereumNetwork.ZKFAIR_MAINNET: "https://scan.zkfair.io",
+        EthereumNetwork.SONIC_MAINNET: "https://sonicscan.org",
+        EthereumNetwork.BERACHAIN: "https://berascan.com",
     }
 
     NETWORK_WITH_API_URL = {
@@ -238,7 +240,7 @@ class EtherscanClient:
         EthereumNetwork.ACALA_NETWORK: "https://blockscout.acala.network",
         EthereumNetwork.ANCIENT8_TESTNET: "https://scanv2-testnet.ancient8.gg",
         EthereumNetwork.FLARE_TESTNET_COSTON2: "https://coston2-explorer.flare.network",
-        EthereumNetwork.PUPPYNET_SHIBARIUM: "https://puppyscan.shib.io",
+        EthereumNetwork.PUPPYNET: "https://puppyscan.shib.io",
         EthereumNetwork.ROLLUX_MAINNET: "https://explorer.rollux.com",
         EthereumNetwork.ZKSYNC_SEPOLIA_TESTNET: "https://api-sepolia-era.zksync.network",
         EthereumNetwork.ATLETA_OLYMPIA: "https://blockscout.atleta.network",
@@ -294,6 +296,8 @@ class EtherscanClient:
         EthereumNetwork.PHOENIX_MAINNET: "https://phoenixplorer.com",
         EthereumNetwork.SNAXCHAIN: "https://explorer.snaxchain.io",
         EthereumNetwork.ZKFAIR_MAINNET: "https://scan.zkfair.io",
+        EthereumNetwork.SONIC_MAINNET: "https://api.sonicscan.org",
+        EthereumNetwork.BERACHAIN: "https://api.berascan.com",
     }
     HTTP_HEADERS: MutableMapping[str, Union[str, bytes]] = {
         "User-Agent": "curl/7.77.0",
@@ -319,8 +323,8 @@ class EtherscanClient:
         self.http_session.headers = self.HTTP_HEADERS
         self.request_timeout = request_timeout
 
-    def build_url(self, path: str):
-        url = urljoin(self.base_api_url, path)
+    def build_url(self, query: str):
+        url = urljoin(self.base_api_url, f"api?{query}")
         if self.api_key:
             url += f"&apikey={self.api_key}"
         return url
@@ -351,6 +355,24 @@ class EtherscanClient:
                     time.sleep(5)
         return None
 
+    @staticmethod
+    def _process_contract_metadata(
+        contract_data: Dict[str, Any]
+    ) -> Optional[ContractMetadata]:
+        contract_name = contract_data["ContractName"]
+        contract_abi = contract_data["ABI"]
+        contract_proxy_implementation_address = (
+            contract_data.get("Implementation") or None
+        )
+        if contract_abi:
+            return ContractMetadata(
+                contract_name,
+                contract_abi,
+                False,
+                contract_proxy_implementation_address,
+            )
+        return None
+
     def get_contract_metadata(
         self, contract_address: str, retry: bool = True
     ) -> Optional[ContractMetadata]:
@@ -358,11 +380,24 @@ class EtherscanClient:
             contract_address, retry=retry
         )
         if contract_source_code:
-            contract_name = contract_source_code["ContractName"]
-            contract_abi = contract_source_code["ABI"]
-            if contract_abi:
-                return ContractMetadata(contract_name, contract_abi, False)
+            return self._process_contract_metadata(contract_source_code)
         return None
+
+    @staticmethod
+    def _process_get_contract_source_code_response(response):
+        if response and isinstance(response, list):
+            result = response[0]
+            abi_str = result.get("ABI")
+
+            if isinstance(abi_str, str) and abi_str.startswith("["):
+                try:
+                    result["ABI"] = json.loads(abi_str)
+                except json.JSONDecodeError:
+                    result["ABI"] = None  # Handle the case where JSON decoding fails
+            else:
+                result["ABI"] = None
+
+            return result
 
     def get_contract_source_code(self, contract_address: str, retry: bool = True):
         """
@@ -385,26 +420,14 @@ class EtherscanClient:
         :return:
         """
         url = self.build_url(
-            f"api?module=contract&action=getsourcecode&address={contract_address}"
+            f"module=contract&action=getsourcecode&address={contract_address}"
         )
         response = self._retry_request(url, retry=retry)  # Returns a list
-        if response and isinstance(response, list):
-            result = response[0]
-            abi_str = result.get("ABI")
-
-            if isinstance(abi_str, str) and abi_str.startswith("["):
-                try:
-                    result["ABI"] = json.loads(abi_str)
-                except json.JSONDecodeError:
-                    result["ABI"] = None  # Handle the case where JSON decoding fails
-            else:
-                result["ABI"] = None
-
-            return result
+        return self._process_get_contract_source_code_response(response)
 
     def get_contract_abi(self, contract_address: str, retry: bool = True):
         url = self.build_url(
-            f"api?module=contract&action=getabi&address={contract_address}"
+            f"module=contract&action=getabi&address={contract_address}"
         )
         result = self._retry_request(url, retry=retry)
         if isinstance(result, dict):

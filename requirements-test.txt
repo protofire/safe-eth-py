@@ -1,10 +1,10 @@
 -r requirements.txt
-coverage==7.6.1
-faker==30.3.0
-mypy==1.11.2
-pytest==8.3.3
-pytest-django==4.9.0
+coverage==7.7.0
+faker==37.0.0
+mypy==1.15.0
+pytest==8.3.5
+pytest-django==4.10.0
 pytest-env==1.1.5
-pytest-rerunfailures==14.0
+pytest-rerunfailures==15.0
 pytest-sugar==1.0.0
-types-requests==2.32.0.20240914
+types-requests==2.32.0.20250306
