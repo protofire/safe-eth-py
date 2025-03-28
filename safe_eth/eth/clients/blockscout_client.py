@@ -138,7 +138,7 @@ class BlockscoutClient:
         EthereumNetwork.FILECOIN_MAINNET: "https://filecoin.blockscout.com/api/v1/graphql",
         EthereumNetwork.FILECOIN_CALIBRATION_TESTNET: "https://filecoin-testnet.blockscout.com/api/v1/graphql",
         EthereumNetwork.ABSTRACT: "https://explorer.mainnet.abs.xyz/api/v1/graphql",
-        EthereumNetwork.ABSTRACT_SEPOLIA: "https://explorer.testnet.abs.xyz/api/v1/graphql",
+        EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: "https://explorer.testnet.abs.xyz/api/v1/graphql",
         EthereumNetwork.AUTONOMYS_TAURUS_TESNET: "https://blockscout.taurus.autonomys.xyz/api/v1/graphql",
         EthereumNetwork.BERACHAIN:"test.blockscout.berachain.io",
         EthereumNetwork.GAME7_TESTNET: "https://testnet.game7.io/api/v1/graphql",

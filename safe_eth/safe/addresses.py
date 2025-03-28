@@ -832,7 +832,7 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.4.1+L2",
         ),  # v1.4.1+L2
     ],
-    EthereumNetwork.ABSTRACT_SEPOLIA: [
+    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
         ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 2207769, "1.3.0+L2"),
         ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 2207773, "1.3.0"),
         ("0xC35F063962328aC65cED5D4c3fC5dEf8dec68dFa", 2209140, "1.4.1"),  # v1.4.1
@@ -2511,18 +2511,6 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 0, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 0, "1.3.0"),
     ],
-    EthereumNetwork.ABSTRACT: [
-        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 57876, "1.3.0"),  # v1.3.0
-        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 57875, "1.3.0+L2"),  # v1.3.0+L2
-    ],
-    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
-        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 2207773, "1.3.0"),  # v1.3.0
-        (
-            "0x1727c2c531cf966f902E5927b98490fDFb3b2b70",
-            2207769,
-            "1.3.0+L2",
-        ),  # v1.3.0+L2
-    ]
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -2879,7 +2867,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 57868),  # v1.3.0
         ("0xc329D02fd8CB2fc13aa919005aF46320794a8629", 54392),  # v1.4.1
     ],
-    EthereumNetwork.ABSTRACT_SEPOLIA: [
+    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
         ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 2207746),  # v1.3.0
         ("0xc329D02fd8CB2fc13aa919005aF46320794a8629", 2206856),  # v1.4.1
     ],
@@ -3741,12 +3729,6 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     EthereumNetwork.PYROPE_TESTNET: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 382695),  # v1.4.1
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 629498),  # v1.3.0 eip155
-    ],
-    EthereumNetwork.ABSTRACT: [
-        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 57868),  # v1.3.0
-    ],
-    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
-        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 2207746),  # v1.3.0
     ],
 }
 
