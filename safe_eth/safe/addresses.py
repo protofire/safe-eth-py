@@ -3,11 +3,13 @@ Contains information about Safe contract addresses deployed in every chain
 
 Every entry contains a tuple with address, deployment block number and version
 """
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Union
 
 from eth_typing import ChecksumAddress, HexAddress, HexStr
 
 from safe_eth.eth import EthereumNetwork
+from safe_eth.eth.utils import fast_to_checksum_address
+from safe_eth.safe.safe_deployments import default_safe_deployments
 
 SAFE_SIMULATE_TX_ACCESSOR_ADDRESS: ChecksumAddress = ChecksumAddress(
     HexAddress(HexStr("0x3d4BA2E0884aa488718476ca2FB8Efc291A46199"))
@@ -1366,10 +1368,20 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ),  # v1.4.1+L2
     ],
     EthereumNetwork.BOTANIX_TESTNET: [
-        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 1368717, "1.3.0+L2"),
-        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1368719, "1.3.0"),
-        ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 1368813, "1.4.1+L2"),
-        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 1368811, "1.4.1"),
+        ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 165429, "1.4.1+L2"),
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 165430, "1.4.1"),
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 1368811, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            1368813,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 1368719, "1.3.0"),  # v1.3.0
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            1368717,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2
     ],
     EthereumNetwork.BLAST_SEPOLIA_TESTNET: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 1087958, "1.3.0+L2"),
@@ -2499,6 +2511,18 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 0, "1.3.0+L2"),
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 0, "1.3.0"),
     ],
+    EthereumNetwork.ABSTRACT: [
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 57876, "1.3.0"),  # v1.3.0
+        ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 57875, "1.3.0+L2"),  # v1.3.0+L2
+    ],
+    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
+        ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 2207773, "1.3.0"),  # v1.3.0
+        (
+            "0x1727c2c531cf966f902E5927b98490fDFb3b2b70",
+            2207769,
+            "1.3.0+L2",
+        ),  # v1.3.0+L2
+    ]
 }
 
 PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
@@ -3161,8 +3185,9 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 5944825),  # v1.4.1
     ],
     EthereumNetwork.BOTANIX_TESTNET: [
-        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1368703),  # v1.3.0
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 165422),  # v1.4.1
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1368795),  # v1.4.1
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 1368703),  # v1.3.0
     ],
     EthereumNetwork.BLAST_SEPOLIA_TESTNET: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 1087898),  # v1.3.0
@@ -3717,6 +3742,42 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 382695),  # v1.4.1
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 629498),  # v1.3.0 eip155
     ],
+    EthereumNetwork.ABSTRACT: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 57868),  # v1.3.0
+    ],
+    EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
+        ("0xDAec33641865E4651fB43181C6DB6f7232Ee91c2", 2207746),  # v1.3.0
+    ],
 }
 
 
+safe_singleton_contract_names = ["GnosisSafe", "GnosisSafeL2", "Safe", "SafeL2"]
+safe_proxy_factory_contract_names = [
+    "ProxyFactory",
+    "GnosisSafeProxyFactory",
+    "SafeProxyFactory",
+]
+
+
+def get_default_addresses_with_version(
+    filter_contract_names: Union[List, None] = None
+) -> List[Tuple[ChecksumAddress, str]]:
+    """
+    Get the default addresses and versions from contract names.
+    The version is the extended one with L2 in case of L2 contract.
+
+    :return: list of Safe deployment contract addresses with version
+    """
+    default_addresses: List[Tuple[ChecksumAddress, str]] = []
+    for version, contracts in default_safe_deployments.items():
+        for contract_name, addresses in contracts.items():
+            if not filter_contract_names or contract_name in filter_contract_names:
+                for address in addresses:
+                    extended_version = (
+                        version + "+L2" if "L2" in contract_name else version
+                    )
+                    default_addresses.append(
+                        (fast_to_checksum_address(address), extended_version)
+                    )
+
+    return default_addresses
