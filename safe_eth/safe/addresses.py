@@ -3856,6 +3856,17 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 80104),  # v1.3.0 eip155
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 19591),  # v1.3.0 canonical
     ],
+    EthereumNetwork.ZKSYNC_SEPOLIA_TESTNET: [
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 5114501),  # v1.4.1
+        (
+            "0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC",
+            5031909,
+        ),  # v1.3.0  Safe singleton address
+        (
+            "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
+            5131795,
+        ),  # v1.3.0  Default singleton address
+    ],
 }
 
 
