@@ -148,6 +148,7 @@ class BlockscoutClient:
         EthereumNetwork.GAME7_TESTNET: "https://testnet.game7.io/api/v1/graphql",
         EthereumNetwork.GAME7: "https://mainnet.game7.io/api/v1/graphql",
         EthereumNetwork.STORY_AENEID: "https://aeneid.storyscan.xyz/api/v1/graphql",
+        EthereumNetwork.STORY: "https://storyscan.xyz/api/v1/graphql",
     }
 
     def __init__(self, network: EthereumNetwork):
