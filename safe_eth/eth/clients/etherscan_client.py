@@ -302,6 +302,7 @@ class EtherscanClient:
         EthereumNetwork.ZKFAIR_MAINNET: "https://scan.zkfair.io",
         EthereumNetwork.SONIC_MAINNET: "https://api.sonicscan.org",
         EthereumNetwork.BERACHAIN: "https://api.berascan.com",
+        EthereumNetwork.ETHEREUM_HOODI: "https://api-hoodi.etherscan.io",
     }
     HTTP_HEADERS: MutableMapping[str, Union[str, bytes]] = {
         "User-Agent": "curl/7.77.0",
