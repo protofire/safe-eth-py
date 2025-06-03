@@ -809,7 +809,8 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.3.0+L2",
         )
     ],
-        EthereumNetwork.ABSTRACT: [
+    EthereumNetwork.ABSTRACT: [
+        # zkSync Stack
         ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 57875, "1.3.0+L2"),
         ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 57876, "1.3.0"),
         ("0xC35F063962328aC65cED5D4c3fC5dEf8dec68dFa", 54402, "1.4.1"),  # v1.4.1
@@ -818,14 +819,69 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             54403,
             "1.4.1+L2",
         ),  # v1.4.1+L2
+        # EVM Compatible stack
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            9093513,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            9093582,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            9093519,
+            "1.3.0",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            9093585,
+            "1.3.0",
+        ),  # default singleton address
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 9054405, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            9055249,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
     ],
     EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: [
+        # zkSync Stack
         ("0x1727c2c531cf966f902E5927b98490fDFb3b2b70", 2207769, "1.3.0+L2"),
         ("0xB00ce5CCcdEf57e539ddcEd01DF43a13855d9910", 2207773, "1.3.0"),
         ("0xC35F063962328aC65cED5D4c3fC5dEf8dec68dFa", 2209140, "1.4.1"),  # v1.4.1
         (
             "0x610fcA2e0279Fa1F8C00c8c2F71dF522AD469380",
             2209146,
+            "1.4.1+L2",
+        ),  # v1.4.1+L2
+        # EVM Compatible stack
+        (
+            "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
+            9176911,
+            "1.3.0+L2",
+        ),  # safe singleton address
+        (
+            "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            9177015,
+            "1.3.0+L2",
+        ),  # default singleton address
+        (
+            "0x69f4D1788e39c87893C980c06EdF4b7f686e2938",
+            9176928,
+            "1.3.0",
+        ),  # safe singleton address
+        (
+            "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+            9177016,
+            "1.3.0",
+        ),  # default singleton address
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 9176976, "1.4.1"),  # v1.4.1
+        (
+            "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+            9176977,
             "1.4.1+L2",
         ),  # v1.4.1+L2
     ],
