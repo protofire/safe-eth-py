@@ -117,6 +117,7 @@ class BlockscoutClient:
         EthereumNetwork.BIRDLAYER: "https://scan.birdlayer.xyz/api/v2",
         EthereumNetwork.EXPCHAIN_TESTNET: "https://blockscout-testnet.expchain.ai/api/v2",
         EthereumNetwork.ETHEREUM_HOODI: "https://eth-hoodi.blockscout.com/api/v2/",
+        EthereumNetwork.STORY: "https://storyscan.io/api/v2"
     }
 
     def __init__(
