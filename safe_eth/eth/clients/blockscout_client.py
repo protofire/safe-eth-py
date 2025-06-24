@@ -119,6 +119,9 @@ class BlockscoutClient:
         EthereumNetwork.ETHEREUM_HOODI: "https://eth-hoodi.blockscout.com/api/v2/",
         EthereumNetwork.STORY: "https://storyscan.io/api/v2",
         EthereumNetwork.SONEIUM_TESTNET_MINATO: "https://soneium-minato.blockscout.com/api/v2/",
+        EthereumNetwork.TAC_MAINNET: "https://explorer.tac.build/api/v2/",
+        EthereumNetwork.TAC_TURIN: "https://turin.explorer.tac.build/api/v2/",
+        EthereumNetwork.TAC_SAINT_PETERSBURG: "https://spb.explorer.tac.build/api/v2/",
     }
 
     def __init__(
