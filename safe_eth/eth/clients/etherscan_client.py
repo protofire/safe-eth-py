@@ -67,6 +67,8 @@ class EtherscanClient:
         EthereumNetwork.BASE_SEPOLIA_TESTNET: "https://sepolia.basescan.org",
         EthereumNetwork.HOLESKY: "https://holesky.etherscan.io",
         EthereumNetwork.LINEA_SEPOLIA: "https://sepolia.lineascan.build",
+        EthereumNetwork.ABSTRACT: "https://abscan.org",
+        EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: "https://sepolia.abscan.org",
         EthereumNetwork.METIS_ANDROMEDA_MAINNET: "https://explorer.metis.io",
         EthereumNetwork.DOGECHAIN_MAINNET: "https://explorer.dogechain.dog",
         EthereumNetwork.FUSE_SPARKNET: "https://explorer.fusespark.io",
@@ -233,6 +235,8 @@ class EtherscanClient:
         EthereumNetwork.BASE_SEPOLIA_TESTNET: "https://api-sepolia.basescan.org",
         EthereumNetwork.HOLESKY: "https://api-holesky.etherscan.io",
         EthereumNetwork.LINEA_SEPOLIA: "https://api-sepolia.lineascan.build",
+        EthereumNetwork.ABSTRACT: "https://api.abscan.org",
+        EthereumNetwork.ABSTRACT_SEPOLIA_TESTNET: "https://api-testnet.abscan.org",
         EthereumNetwork.METIS_ANDROMEDA_MAINNET: "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
         EthereumNetwork.DOGECHAIN_MAINNET: "https://explorer.dogechain.dog",
         EthereumNetwork.FUSE_SPARKNET: "https://explorer.fusespark.io",
@@ -350,6 +354,7 @@ class EtherscanClient:
         EthereumNetwork.AVALANCHE_FUJI_TESTNET: "https://api-testnet.snowtrace.io",
         EthereumNetwork.ODYSSEY_TESTNET: "https://odyssey-explorer.ithaca.xyz",
         EthereumNetwork.PLUME_MAINNET: "https://explorer.plume.org",
+        EthereumNetwork.ETHEREUM_HOODI: "https://api-hoodi.etherscan.io",
     }
     HTTP_HEADERS: MutableMapping[str, Union[str, bytes]] = {
         "User-Agent": "curl/7.77.0",
