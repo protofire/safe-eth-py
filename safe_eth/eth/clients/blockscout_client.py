@@ -131,6 +131,7 @@ class BlockscoutClient:
         EthereumNetwork.ETHEREUM_HOODI: "https://eth-hoodi.blockscout.com/api/v2/",
         EthereumNetwork.ETHEREAL_TESTNET: "https://explorer-ethereal-testnet.t.conduit.xyz/api/v2/",
         EthereumNetwork.ENI_MAINNET: "https://scan.eniac.network/api/v2",
+        EthereumNetwork.VANA: "https://vanascan.io/api/v2/",
     }
 
     def __init__(
