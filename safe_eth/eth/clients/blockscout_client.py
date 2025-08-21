@@ -20,6 +20,22 @@ class BlockScoutConfigurationProblem(BlockscoutClientException):
 
 class BlockscoutClient:
     NETWORK_WITH_URL = {
+        EthereumNetwork.METIS_ANDROMEDA_MAINNET: "https://andromeda-explorer.metis.io/api/v2/",
+        EthereumNetwork.FUSE_MAINNET: "https://explorer.fuse.io/api/v2/",
+        EthereumNetwork.UNREAL_OLD: "https://unreal.blockscout.com/api/v2/",
+        EthereumNetwork.STRATIS_MAINNET: "https://explorer.stratisevm.com/api/v2/",
+        EthereumNetwork.SHIMMEREVM: "https://explorer.evm.shimmer.network/api/v2/",
+        EthereumNetwork.BITROCK_MAINNET: "https://explorer.bit-rock.io/api/v2/",
+        EthereumNetwork.RSS3_VSL_SEPOLIA_TESTNET: "https://scan.testnet.rss3.io/api/v2/",
+        EthereumNetwork.RSS3_VSL_MAINNET: "https://scan.rss3.io/api/v2/",
+        EthereumNetwork.GARNET_HOLESKY: "https://explorer.garnetchain.com/api/v2/",
+        EthereumNetwork.UNREAL: "https://unreal.blockscout.com/api/v2/",
+        EthereumNetwork.EDU_CHAIN_TESTNET: "https://edu-chain-testnet.blockscout.com/api/v2/",
+        EthereumNetwork.ETHERLINK_TESTNET: "https://testnet.explorer.etherlink.com/api/v2/",
+        EthereumNetwork.CITREA_TESTNET: "https://explorer.testnet.citrea.xyz/api/v2/",
+        EthereumNetwork.EDU_CHAIN: "https://educhain.blockscout.com/api/v2/",
+        EthereumNetwork.FILECOIN_MAINNET: "https://filecoin.blockscout.com/api/v2/",
+        EthereumNetwork.FILECOIN_CALIBRATION_TESTNET: "https://filecoin-testnet.blockscout.com/api/v2/",
         EthereumNetwork.ACALA_NETWORK: "https://blockscout.acala.network/api/v2/",
         EthereumNetwork.ALEPH_ZERO_EVM: "https://evm-explorer.alephzero.org/api/v2/",
         EthereumNetwork.ARBITRUM_BLUEBERRY: "https://arb-blueberry.gelatoscout.com/api/v2/",
@@ -63,7 +79,6 @@ class BlockscoutClient:
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz/api/v2/",
         EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/api/v2/",
         EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz/api/v2/",
-        EthereumNetwork.MANTLE_TESTNET: "https://explorer.testnet.mantle.xyz/api/v2/",
         EthereumNetwork.MANTA_PACIFIC_MAINNET: "https://pacific-explorer.manta.network/api/v2/",
         EthereumNetwork.METER_MAINNET: "https://scan.meter.io/api/v2/",
         EthereumNetwork.METER_TESTNET: "https://scan-warringstakes.meter.io/api/v2/",
@@ -101,7 +116,6 @@ class BlockscoutClient:
         EthereumNetwork.TAC_TURIN: "https://turin.explorer.tac.build/api/v2",
         EthereumNetwork.ALEPH_ZERO: "https://evm-explorer-testnet.alephzero.org/api/v2/",
         EthereumNetwork.AUTONOMYS_TAURUS_TESTNET: "https://explorer.auto-evm.taurus.autonomys.xyz/api/v2/",
-        EthereumNetwork.STORY_AENEID_TESTNET: "https://aeneid.storyscan.xyz/api/v2/",
         EthereumNetwork.STORY: "https://mainnet.storyscan.xyz/api/v2/",
         EthereumNetwork.AUTONITY_PICCADILLY_TIBER_TESTNET: "https://piccadilly.autonity.org/api/v2",
         EthereumNetwork.SONEIUM_TESTNET_MINATO: "https://soneium-minato.blockscout.com/api/v2/",
@@ -113,6 +127,11 @@ class BlockscoutClient:
         EthereumNetwork.SHAPE: "https://shapescan.xyz/api/v2",
         EthereumNetwork.SHAPE_SEPOLIA_TESTNET: "https://sepolia.shapescan.xyz/api/v2/",
         EthereumNetwork.STORY_AENEID_TESTNET: "https://aeneid.storyscan.io/api/v2/",
+        EthereumNetwork.EXPCHAIN_TESTNET: "https://blockscout-testnet.expchain.ai/api/v2",
+        EthereumNetwork.ETHEREUM_HOODI: "https://eth-hoodi.blockscout.com/api/v2/",
+        EthereumNetwork.ETHEREAL_TESTNET: "https://explorer-ethereal-testnet.t.conduit.xyz/api/v2/",
+        EthereumNetwork.ENI_MAINNET: "https://scan.eniac.network/api/v2",
+        EthereumNetwork.VANA: "https://vanascan.io/api/v2/",
     }
 
     def __init__(
@@ -158,7 +177,7 @@ class BlockscoutClient:
                 name,
                 abi,
                 False,
-                implementations[0]["address"] if implementations else None,
+                implementations[0]["address_hash"] if implementations else None,
             )
         return None
 
