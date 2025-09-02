@@ -2768,6 +2768,10 @@ safe_deployments = {
                 "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
                 "0x998739BFdAAdde7C933B942a68053933098f9EDa",
             ],
+            "9746": [
+                "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+                "0x998739BFdAAdde7C933B942a68053933098f9EDa",
+            ],
             "3": ["0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761"],
             "4": ["0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761"],
             "5": ["0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761"],
@@ -3431,6 +3435,10 @@ safe_deployments = {
         },
         "MultiSendCallOnly": {
             "1": [
+                "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+                "0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B",
+            ],
+            "9746": [
                 "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
                 "0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B",
             ],
@@ -6661,6 +6669,7 @@ safe_deployments = {
         },
         "MultiSend": {
             "1": ["0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"],
+            "9746": ["0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"],
             "5": ["0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"],
             "10": ["0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"],
             "14": ["0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"],
@@ -6943,6 +6952,7 @@ safe_deployments = {
         },
         "MultiSendCallOnly": {
             "1": ["0x9641d764fc13c8B624c04430C7356C1C7C8102e2"],
+            "9746": ["0x9641d764fc13c8B624c04430C7356C1C7C8102e2"],
             "5": ["0x9641d764fc13c8B624c04430C7356C1C7C8102e2"],
             "10": ["0x9641d764fc13c8B624c04430C7356C1C7C8102e2"],
             "14": ["0x9641d764fc13c8B624c04430C7356C1C7C8102e2"],
