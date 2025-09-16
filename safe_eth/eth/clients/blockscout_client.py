@@ -122,6 +122,7 @@ class BlockscoutClient:
         EthereumNetwork.TAC_MAINNET: "https://explorer.tac.build/api/v2/",
         EthereumNetwork.TAC_TURIN: "https://turin.explorer.tac.build/api/v2/",
         EthereumNetwork.TAC_SAINT_PETERSBURG: "https://spb.explorer.tac.build/api/v2/",
+        EthereumNetwork.AUTONOMYS_CHRONOS_TESTNET: "https://explorer.auto-evm.chronos.autonomys.xyz/api/v2/",
     }
 
     def __init__(
