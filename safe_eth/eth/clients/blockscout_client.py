@@ -134,6 +134,7 @@ class BlockscoutClient:
         EthereumNetwork.VANA: "https://vanascan.io/api/v2/",
         EthereumNetwork.AUTONOMYS_CHRONOS_TESTNET: "https://explorer.auto-evm.chronos.autonomys.xyz/api/v2/",
         EthereumNetwork.MANTRACHAIN_TESTNET: "https://explorer.dukong.io/api/v2/",
+        EthereumNetwork.MANTRACHAIN_MAINNET: "https://blockscout.mantrascan.io/api/v2/",
     }
 
     def __init__(
