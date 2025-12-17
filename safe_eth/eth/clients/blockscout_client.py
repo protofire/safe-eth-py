@@ -136,6 +136,7 @@ class BlockscoutClient:
         EthereumNetwork.MANTRACHAIN_TESTNET: "https://explorer.dukong.io/api/v2/",
         EthereumNetwork.MANTRACHAIN_MAINNET: "https://blockscout.mantrascan.io/api/v2/",
         EthereumNetwork.MORPH_HOODI: "https://explorer-api-hoodi.morphl2.io/api/v2",
+        EthereumNetwork.DOGEOS_CHIKYU_TESTNET: "https://blockscout.testnet.dogeos.com/api/v2/",
     }
 
     def __init__(
