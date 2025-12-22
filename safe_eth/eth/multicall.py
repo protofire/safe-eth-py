@@ -339,6 +339,7 @@ class Multicall(ContractBase):
         EthereumNetwork.STATUS_NETWORK_SEPOLIA: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.PLASMA_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.PLASMA_TESTNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        EthereumNetwork.MISTERY_PS_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
     }
 
     def __init__(
