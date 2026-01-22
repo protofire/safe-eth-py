@@ -152,6 +152,7 @@ class BlockscoutClient:
         EthereumNetwork.MANTRACHAIN_MAINNET: "https://blockscout.mantrascan.io/api/v2/",
         EthereumNetwork.DOGEOS_CHIKYU_TESTNET: "https://blockscout.testnet.dogeos.com/api/v2/",
         EthereumNetwork.ALPEN_TESTNET: "https://explorer.pectra-testnet.alpenlabs.io/api/v2/",
+        EthereumNetwork.AULT_BLOCKCHAIN_TESTNET: "https://test-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
     }
 
     def __init__(
