@@ -1445,6 +1445,7 @@ class EthereumNetwork(Enum):
     FUNKI = 33979
     MODE = 34443
     ZEUS_MAINNET = 34504
+    ADI_CHAIN = 34900
     J2O_TARO = 35011
     Q_MAINNET = 35441
     Q_TESTNET = 35443

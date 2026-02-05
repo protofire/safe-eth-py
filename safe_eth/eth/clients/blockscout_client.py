@@ -154,6 +154,7 @@ class BlockscoutClient:
         EthereumNetwork.ALPEN_TESTNET: "https://explorer.pectra-testnet.alpenlabs.io/api/v2/",
         EthereumNetwork.AULT_BLOCKCHAIN_TESTNET: "https://test-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
         EthereumNetwork.TAIKO_HOODI: "https://blockscoutapi.hoodi.taiko.xyz/api/v2/",
+        EthereumNetwork.ADI_CHAIN: "https://explorer-bls.adifoundation.ai/api/v2",
     }
 
     def __init__(
