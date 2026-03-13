@@ -99,7 +99,7 @@ class UserOperation:
                 if user_operation.get("factory") is not None
                 else None,
                 HexBytes(user_operation["factoryData"])
-                if "factoryData" in user_operation
+                if user_operation.get("factoryData") is not None
                 else None,
                 paymaster_verification_gas_limit,
                 paymaster_post_op_gas_limit,
