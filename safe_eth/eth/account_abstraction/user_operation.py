@@ -96,7 +96,7 @@ class UserOperation:
                 HexBytes(user_operation["signature"]),
                 ChecksumAddress(user_operation_response["entryPoint"]),
                 ChecksumAddress(user_operation["factory"])
-                if "factory" in user_operation
+                if user_operation.get("factory") is not None
                 else None,
                 HexBytes(user_operation["factoryData"])
                 if "factoryData" in user_operation
