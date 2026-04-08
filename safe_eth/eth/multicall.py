@@ -345,6 +345,7 @@ class Multicall(ContractBase):
         EthereumNetwork.VANA_MOKSHA_TESTNET: "0xD8d2dFca27E8797fd779F8547166A2d3B29d360E",
         EthereumNetwork.ARC_TESTNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.REDDIO: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        EthereumNetwork.STATUS_NETWORK_HOODI: "0xcA11bde05977b3631167028862bE2a173976CA11",
     }
 
     def __init__(
