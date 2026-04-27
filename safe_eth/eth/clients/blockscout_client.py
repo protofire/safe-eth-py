@@ -70,6 +70,7 @@ class BlockscoutClient:
         EthereumNetwork.LINEA: "https://api-explorer.linea.build/api/v2/",
         EthereumNetwork.LISK: "https://blockscout.lisk.com/api/v2/",
         EthereumNetwork.LISK_SEPOLIA_TESTNET: "https://sepolia-blockscout.lisk.com/api/v2/",
+        EthereumNetwork.LITVM_LITEFORGE_TESTNET: "https://liteforge.explorer.caldera.xyz/api/v2/",
         EthereumNetwork.LORENZO: "https://scan.lorenzo-protocol.xyz/api/v2/",
         EthereumNetwork.MANTLE: "https://explorer.mantle.xyz/api/v2/",
         EthereumNetwork.MANTLE_SEPOLIA_TESTNET: "https://explorer.sepolia.mantle.xyz/api/v2/",
