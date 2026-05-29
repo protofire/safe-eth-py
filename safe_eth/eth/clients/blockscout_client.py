@@ -155,6 +155,7 @@ class BlockscoutClient:
         EthereumNetwork.MANTRACHAIN_MAINNET: "https://blockscout.mantrascan.io/api/v2/",
         EthereumNetwork.AULT_BLOCKCHAIN_TESTNET: "https://test-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
         EthereumNetwork.AULT_BLOCKCHAIN_MAINNET: "https://main-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
+        EthereumNetwork.MIZUHIKI_TESTNET_AWAJI: "https://awaji.blockscout.com/api/v2/",
     }
 
     def __init__(
