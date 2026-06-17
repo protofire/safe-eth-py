@@ -156,6 +156,7 @@ class BlockscoutClient:
         EthereumNetwork.AULT_BLOCKCHAIN_TESTNET: "https://test-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
         EthereumNetwork.AULT_BLOCKCHAIN_MAINNET: "https://main-evm-explorer.cloud.aultblockchain.xyz/api/v2/",
         EthereumNetwork.MIZUHIKI_TESTNET_AWAJI: "https://awaji.blockscout.com/api/v2/",
+        EthereumNetwork.CITREA_MAINNET: "https://explorer.mainnet.citrea.xyz/api/v2/",
     }
 
     def __init__(
