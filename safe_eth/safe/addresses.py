@@ -3686,10 +3686,13 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 3175149, "1.4.1"),  # v1.4.1
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 3175157, "1.4.1+L2"),  # v1.4.1+L2
     ],
-    # This should be EthereumNetwork.ADI_CHAIN_TESTNET, but there's a collision with the chain_id = 99999 already registered
-    EthereumNetwork.UB_SMART_CHAIN: [
+    EthereumNetwork.ADI_CHAIN_TESTNET: [
+        ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 606701, "1.3.0"),  # v1.3.0
+        ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 606698, "1.3.0+L2"),  # v1.3.0+L2
         ("0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552", 15763, "1.3.0"),  # v1.3.0
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 15761, "1.3.0+L2"),  # v1.3.0+L2
+        ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 606468, "1.4.1"),  # v1.4.1
+        ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 606469, "1.4.1+L2"),  # v1.4.1+L2
     ],
     EthereumNetwork.AULT_BLOCKCHAIN_MAINNET: [
         ("0x69f4D1788e39c87893C980c06EdF4b7f686e2938", 603491, "1.3.0"),  # v1.3.0
@@ -5260,9 +5263,10 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 602868),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 603578),  # v1.4.1
     ],
-    # This should be EthereumNetwork.ADI_CHAIN_TESTNET, but there's a collision with the chain_id = 99999 already registered
-    EthereumNetwork.UB_SMART_CHAIN: [
+    EthereumNetwork.ADI_CHAIN_TESTNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 606687),  # v1.3.0
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 15752),  # v1.3.0
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 606458),  # v1.4.1
     ],
     EthereumNetwork.MIZUHIKI_TESTNET_AWAJI: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 638944),  # v1.3.0
