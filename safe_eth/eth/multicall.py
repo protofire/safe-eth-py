@@ -354,6 +354,7 @@ class Multicall(ContractBase):
         EthereumNetwork.GRAVITY_L1: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.NEO_X_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.XRPL_EVM_SIDECHAIN_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        EthereumNetwork.APEX_FUSION_NEXUS_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
     }
 
     def __init__(
