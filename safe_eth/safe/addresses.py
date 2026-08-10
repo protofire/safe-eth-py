@@ -5294,6 +5294,13 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
     EthereumNetwork.APEX_FUSION_NEXUS_MAINNET: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 3275),  # v1.3.0
     ],
+    EthereumNetwork.GOAT_NETWORK: [
+        ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 116),  # v1.3.0
+        ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1567035),  # v1.4.1
+    ],
+    EthereumNetwork.INTUITION_MAINNET: [
+        ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 42),  # v1.3.0
+    ],
 }
 
 

@@ -155,6 +155,8 @@ class BlockscoutClient:
         EthereumNetwork.CITREA_MAINNET: "https://explorer.mainnet.citrea.xyz/api/v2/",
         EthereumNetwork.GRAVITY_L1: "https://api.mainnet-explorer.gravity.xyz/api/v2/",
         EthereumNetwork.XRPL_EVM_SIDECHAIN_MAINNET: "https://explorer.xrplevm.org/api/v2/",
+        EthereumNetwork.INTUITION_MAINNET: "https://intuition.calderaexplorer.xyz/api/v2/",
+        EthereumNetwork.GOAT_NETWORK: "https://explorer.goat.network/api/v2/",
     }
 
     def __init__(
