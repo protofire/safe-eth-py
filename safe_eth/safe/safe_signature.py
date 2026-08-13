@@ -42,6 +42,8 @@ from safe_eth.safe.signatures import (
 
 logger = getLogger(__name__)
 
+# Tron chain IDs: Mainnet, Shasta testnet, Nile testnet
+TRON_CHAIN_IDS = {728126428, 2494104990, 3448148188}
 
 EthereumBytes = Union[bytes, str]
 
@@ -101,13 +103,20 @@ class SafeSignatureBase(ABC):
     eoa_cls: ClassVar[Optional[Type["SafeSignatureBase"]]] = None
     eth_sign_cls: ClassVar[Optional[Type["SafeSignatureBase"]]] = None
 
-    def __init__(self, signature: EthereumBytes, safe_hash: EthereumBytes):
+    def __init__(
+        self,
+        signature: EthereumBytes,
+        safe_hash: EthereumBytes,
+        chain_id: Optional[int] = None,
+    ):
         """
         :param signature: Owner signature
         :param safe_hash: Signed hash for the Safe (message or transaction)
+        :param chain_id: Optional chain ID (used for Tron signature recovery)
         """
         self.signature = HexBytes(signature)
         self.safe_hash = HexBytes(safe_hash)
+        self.chain_id: Optional[int] = chain_id
         v, r, s = signature_split(self.signature)
         self.v: int = v
         self.r: int = r
@@ -123,6 +132,7 @@ class SafeSignatureBase(ABC):
         safe_hash: EthereumBytes,
         safe_hash_preimage: Optional[EthereumBytes] = None,
         ignore_trailing: bool = True,
+        chain_id: Optional[int] = None,
     ) -> List[TSafeSignature]:
         """
         :param signatures: One or more signatures appended. EIP1271 data at the end is supported.
@@ -130,6 +140,7 @@ class SafeSignatureBase(ABC):
         :param safe_hash_preimage: ``safe_hash`` preimage for EIP1271 validation
         :param ignore_trailing: Ignore trailing data on the signature. Some libraries pad it and add some zeroes at
             the end
+        :param chain_id: Optional chain ID (used for Tron signature recovery)
         :return: List of SafeSignatures decoded
         """
         if not signatures:
@@ -172,25 +183,32 @@ class SafeSignatureBase(ABC):
                         safe_hash,
                         safe_hash_preimage or safe_hash,
                         contract_signature,
+                        chain_id=chain_id,
                     ),
                 )
             elif signature_type == SafeSignatureType.APPROVED_HASH:
                 safe_signature_cls = cls._get_approved_hash_cls()
                 safe_signature = cast(
                     TSafeSignature,
-                    cast(Type[Any], safe_signature_cls)(signature, safe_hash),
+                    cast(Type[Any], safe_signature_cls)(
+                        signature, safe_hash, chain_id=chain_id
+                    ),
                 )
             elif signature_type == SafeSignatureType.EOA:
                 safe_signature_cls = cls._get_eoa_cls()
                 safe_signature = cast(
                     TSafeSignature,
-                    cast(Type[Any], safe_signature_cls)(signature, safe_hash),
+                    cast(Type[Any], safe_signature_cls)(
+                        signature, safe_hash, chain_id=chain_id
+                    ),
                 )
             elif signature_type == SafeSignatureType.ETH_SIGN:
                 safe_signature_cls = cls._get_eth_sign_cls()
                 safe_signature = cast(
                     TSafeSignature,
-                    cast(Type[Any], safe_signature_cls)(signature, safe_hash),
+                    cast(Type[Any], safe_signature_cls)(
+                        signature, safe_hash, chain_id=chain_id
+                    ),
                 )
             else:
                 logger.warning("Unexpected signature %s", signature)
@@ -321,8 +339,9 @@ class SafeSignatureContractMixin(SafeSignatureBase):
         safe_hash: EthereumBytes,
         safe_hash_preimage: EthereumBytes,
         contract_signature: EthereumBytes,
+        chain_id: Optional[int] = None,
     ):
-        super().__init__(signature, safe_hash)
+        super().__init__(signature, safe_hash, chain_id=chain_id)
         self.safe_hash_preimage: HexBytes = HexBytes(safe_hash_preimage)
         self.contract_signature: HexBytes = HexBytes(contract_signature)
 
@@ -382,6 +401,57 @@ class SafeSignatureApprovedHashMixin(SafeSignatureBase):
 class SafeSignatureEthSignMixin(SafeSignatureBase):
     @property
     def owner(self) -> ChecksumAddress:
+        # Tron: TronLink signs with "\x19TRON Signed Message:\n32" prefix + raw hash
+        # v is offset by +31 (v=58 or 59), so adjust v-31 to get standard 27/28
+        if self.chain_id is not None and self.chain_id in TRON_CHAIN_IDS:
+            v_adjusted = self.v - 31
+
+            # 1) Primary: Reconstruct the hash that TronLink actually signed:
+            #    keccak256("\x19TRON Signed Message:\n32" + safe_hash)
+            tron_prefix = b"\x19TRON Signed Message:\n32"
+            prefixed_hash = Web3.keccak(tron_prefix + bytes(self.safe_hash))
+            tron_owner = cast(
+                ChecksumAddress,
+                get_signing_address(prefixed_hash, v_adjusted, self.r, self.s),
+            )
+            logger.debug(
+                "Tron ETH_SIGN recovery: v=%d v_adjusted=%d safe_hash=%s "
+                "prefixed_hash=%s => tron_owner=%s",
+                self.v,
+                v_adjusted,
+                self.safe_hash.hex(),
+                prefixed_hash.hex(),
+                tron_owner,
+            )
+
+            # 2) Fallback: try EOA-style recovery (raw EIP-712 hash, no prefix).
+            #    Some TronLink versions or viem code paths may produce a raw
+            #    ECDSA signature over the EIP-712 hash without the TRON message
+            #    prefix.  We compute both and let the serializer validate that
+            #    the recovered address is actually an owner.
+            eoa_owner = cast(
+                ChecksumAddress,
+                get_signing_address(
+                    bytes(self.safe_hash), v_adjusted, self.r, self.s
+                ),
+            )
+
+            if eoa_owner != tron_owner:
+                logger.info(
+                    "Tron ETH_SIGN dual recovery: tron_owner=%s eoa_owner=%s "
+                    "(v=%d, safe_hash=%s)",
+                    tron_owner,
+                    eoa_owner,
+                    self.v,
+                    self.safe_hash.hex(),
+                )
+
+            # Store the EOA fallback so the serializer can check both
+            self._tron_eoa_fallback_owner = eoa_owner
+
+            return tron_owner
+
+        # Standard Ethereum: hash with prefix, v - 4
         # defunct_hash_message prepends `\x19Ethereum Signed Message:\n32`
         message_hash = defunct_hash_message(primitive=self.safe_hash)
         return cast(

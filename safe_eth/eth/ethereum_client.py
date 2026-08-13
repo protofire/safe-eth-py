@@ -207,6 +207,13 @@ def get_auto_ethereum_client() -> "EthereumClient":
         ethereum_node_url = settings.ETHEREUM_NODE_URL
     except ModuleNotFoundError:
         ethereum_node_url = os.environ.get("ETHEREUM_NODE_URL")
+    extra_headers = None
+    rpc_headers_json = os.environ.get("ETHEREUM_RPC_HEADERS")
+    if rpc_headers_json:
+        import json
+
+        extra_headers = json.loads(rpc_headers_json)
+
     return EthereumClient(
         ethereum_node_url,
         provider_timeout=int(os.environ.get("ETHEREUM_RPC_TIMEOUT", 10)),
@@ -215,6 +222,7 @@ def get_auto_ethereum_client() -> "EthereumClient":
         batch_request_max_size=int(
             os.environ.get("ETHEREUM_RPC_BATCH_REQUEST_MAX_SIZE", 500)
         ),
+        extra_headers=extra_headers,
     )
 
 
@@ -1217,6 +1225,7 @@ class EthereumClient:
         retry_count: int = 1,
         use_request_caching: bool = True,
         batch_request_max_size: int = 500,
+        extra_headers: Optional[Dict[str, str]] = None,
     ):
         """
         :param ethereum_node_url: Ethereum RPC uri
@@ -1225,8 +1234,11 @@ class EthereumClient:
         :param retry_count: Retry count for failed requests
         :param use_request_caching: Use web3 request caching https://web3py.readthedocs.io/en/latest/internals.html#request-caching
         :param batch_request_max_size: Max size for JSON RPC Batch requests. Some providers have a limitation on 500
+        :param extra_headers: Extra HTTP headers to send with every RPC request (e.g. API keys)
         """
         self.http_session = prepare_http_session(1, 100, retry_count=retry_count)
+        if extra_headers:
+            self.http_session.headers.update(extra_headers)
         self.ethereum_node_url: str = ethereum_node_url
         self.timeout = provider_timeout
         self.slow_timeout = slow_provider_timeout
