@@ -3507,12 +3507,12 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 315767, "1.4.1+L2"),  # v1.4.1+L2
     ],
     EthereumNetwork.TRON_SHASTA: [
-        ("0x2e6355a073170c38b778af539b8f11e207ca4e30", 63501900, "1.4.1+L2"),  # v1.4.1+L2 (SafeL2)
-        ("0x33590f36b991c2c260c8b1f7ef4e4eff405c1253", 63501900, "1.4.1"),  # v1.4.1 (Safe)
+        ("0x1bdf92b7ad0aa881e811c540bde8600c3e2a41c8", 67180900, "1.4.1+L2"),  # SafeL2
+        ("0x48a430a9e259b1fa41408cef6103c56d8051ef36", 67180900, "1.4.1"),  # Safe
     ],
     EthereumNetwork.TRON_MAINNET: [
-        ("0xddbb124aa9f02c1234026e4f9ab106169faaf15e", 80922225, "1.4.1+L2"),  # v1.4.1+L2 (SafeL2)
-        ("0x0b9ca12d2ce6a6ec17df8fc602144c55a6ab1717", 79740114, "1.4.1"),  # v1.4.1 (Safe)
+        ("0x5c03b2637513d2ee57603d8aef67f6989b426c14", 85295904, "1.4.1+L2"),  # SafeL2
+        ("0x1619de3c122b610ef788a1bc13772a0c8506ed09", 85150799, "1.4.1"),  # Safe
     ],
 }
 
@@ -4990,7 +4990,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 315655),  # v1.4.1
     ],
     EthereumNetwork.TRON_SHASTA: [
-        ("0x1cd2a7aa6203dcb9bb40cf8d916011cefef82af1", 63501900),  # v1.4.1
+        ("0xe010048abee39457ddaa556ed782732ca80ab39c", 67180900),  # v1.4.1
     ],
     EthereumNetwork.TRON_MAINNET: [
         ("0x39235a65aed90f13a2bbec5c53f0d710cdbbc5d7", 79739958),  # v1.4.1
