@@ -357,6 +357,7 @@ class Multicall(ContractBase):
         EthereumNetwork.APEX_FUSION_NEXUS_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.INTUITION_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.INJECTIVE: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        EthereumNetwork.PLUME_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
     }
 
     def __init__(
