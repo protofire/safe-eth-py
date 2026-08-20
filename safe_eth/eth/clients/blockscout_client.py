@@ -159,6 +159,7 @@ class BlockscoutClient:
         EthereumNetwork.GOAT_NETWORK: "https://explorer.goat.network/api/v2/",
         EthereumNetwork.INJECTIVE: "https://blockscout-api.injective.network/api/v2/",
         EthereumNetwork.PLUME_MAINNET: "https://explorer-plume-mainnet-1.t.conduit.xyz/api/v2/",
+        EthereumNetwork.COTI_MAINNET: "https://mainnet.cotiscan.io/api/v2/",
     }
 
     def __init__(
