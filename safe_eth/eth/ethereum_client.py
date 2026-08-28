@@ -730,7 +730,7 @@ class Erc20Manager(EthereumClientManager):
         else:
             all_topics = [[topic_0]]  # All transfer events
         parameters: FilterParams = {"fromBlock": from_block}
-        if to_block:
+        if to_block is not None:
             parameters["toBlock"] = to_block
         if token_address:
             parameters["address"] = token_address
