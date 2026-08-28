@@ -407,6 +407,7 @@ class EthereumNetwork(Enum):
     QL1 = 766
     OPENCHAIN_TESTNET = 776
     CHEAPETH = 777
+    RITUAL_MAINNET = 784
     AUTHEO_TESTNET = 785
     MAAL_CHAIN = 786
     ACALA_NETWORK = 787
