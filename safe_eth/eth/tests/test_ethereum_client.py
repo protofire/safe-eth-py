@@ -258,6 +258,14 @@ class TestERC20Module(EthereumTestCaseMixin, TestCase):
         account_2 = self.create_and_fund_account(initial_ether=0.01)
         account_3 = self.create_and_fund_account(initial_ether=0.01)
         erc20_contract = self.deploy_example_erc20(amount, owner_account.address)
+
+        # Regression test: `to_block=0` must not be silently dropped. `0` is falsy, so a naive
+        # `if to_block:` check omits `toBlock` from the RPC call entirely, defaulting it to
+        # `latest` and querying the whole chain instead of just block 0.
+        self.assertEqual(
+            self.ethereum_client.erc20.get_total_transfer_history(to_block=0), []
+        )
+
         # `owner` sends `amount // 2` to `account_1` and `account_3`
         self.send_tx(
             erc20_contract.functions.transfer(
