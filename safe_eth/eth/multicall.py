@@ -359,6 +359,7 @@ class Multicall(ContractBase):
         EthereumNetwork.INJECTIVE: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.PLUME_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
         EthereumNetwork.COTI_MAINNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        EthereumNetwork.GRAVITY_LONGEVITY_TESTNET: "0xcA11bde05977b3631167028862bE2a173976CA11",
     }
 
     def __init__(
