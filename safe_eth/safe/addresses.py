@@ -577,6 +577,12 @@ MASTER_COPIES: Dict[EthereumNetwork, List[Tuple[str, int, str]]] = {
             "1.4.1+L2",
         ),  # v1.4.1+L2
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 5854670, "1.4.1"),  # v1.4.1
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 34415958, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            39121079,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.BASE_GOERLI_TESTNET: [
         ("0x29fcB43b46531BcA003ddC8FCB67FFE91900C762", 7330635, "1.4.1+L2"),
@@ -4454,6 +4460,7 @@ PROXY_FACTORIES: Dict[EthereumNetwork, List[Tuple[str, int]]] = {
             2156359,
         ),  # v1.3.0 default singleton address
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 3024579),  # v1.4.1
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 34415957),  # v1.5.0
     ],
     EthereumNetwork.BASE_GOERLI_TESTNET: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 7330598),  # v1.4.1
