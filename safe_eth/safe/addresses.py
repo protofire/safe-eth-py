@@ -117,12 +117,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
         ("0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F", 10045292, "1.1.1"),
         ("0x2CB0ebc503dE87CFD8f0eCEED8197bF7850184ae", 12529466, "1.1.1+Circles"),
         ("0xb6029EA3B2c51D09a50B53CA8012FeEB05bDa35A", 19560130, "1.0.0"),
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 41687624, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     42671288,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 41687624, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            42671288,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.ENERGY_WEB_CHAIN: [
         ("0x3E5c63644E683549055b9Be8653de26E0B4CD36E", 12028662, "1.3.0+L2"),
@@ -586,12 +586,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             22052454,
             "1.4.1+L2",
         ),  # v1.4.1+L2
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 87780559, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     87780573,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 87780559, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            87780573,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.CRONOS_MAINNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 3002268, "1.3.0+L2"),
@@ -832,12 +832,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             2087040,
             "1.3.0",
         ),  # Safe singleton address
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 8538341, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     8538343,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 8538341, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            8538343,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.TENET_TESTNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 885391, "1.3.0+L2"),
@@ -1018,12 +1018,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             60385703,
             "1.4.1+L2",
         ),  # v1.4.1+L2 canonical
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 71461865, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     71461866,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 71461865, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            71461866,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.MANTLE_TESTNET: [
         ("0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", 4404246, "1.3.0+L2"),
@@ -2053,12 +2053,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             80547067,
             "1.4.1+L2",
         ),  # v1.4.1+L2
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 163563251, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     203948976,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 163563251, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            203948976,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.ZETACHAIN_MAINNET: [
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 3315631, "1.4.1"),  # v1.4.1
@@ -3570,12 +3570,12 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             1724229,
             "1.4.1+L2",
         ),  # v1.4.1+L2
-        # ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 6146581, "1.5.0"),  # v1.5.0
-        # (
-        #     "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
-        #     6146582,
-        #     "1.5.0+L2",
-        # ),  # v1.5.0+L2
+        ("0xFf51A5898e281Db6DfC7855790607438dF2ca44b", 6146581, "1.5.0"),  # v1.5.0
+        (
+            "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+            6146582,
+            "1.5.0+L2",
+        ),  # v1.5.0+L2
     ],
     EthereumNetwork.PAIX_DEVELOPMENT_NETWORK: [
         ("0x41675C099F32341bf84BFc5382aF534df5C7461a", 179038, "1.4.1"),  # v1.4.1
@@ -4873,7 +4873,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
         ),  # v1.3.0 default singleton address
         ("0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B", 10045327),  # v1.1.1
         ("0x12302fE9c02ff50939BaAaaf415fc226C078613C", 17677119),  # v1.0.0
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 41687620),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 41687620),  # v1.5.0
     ],
     EthereumNetwork.ENERGY_WEB_CHAIN: [
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 12028652),  # v1.3.0
@@ -5091,7 +5091,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
     EthereumNetwork.CRONOS_TESTNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 3290819),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 22049385),  # v1.4.1
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 87780434),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 87780434),  # v1.5.0
     ],
     EthereumNetwork.CRONOS_MAINNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 2958469),  # v1.3.0
@@ -5205,7 +5205,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
             "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
             2086864,
         ),  # v1.3.0  Default singleton address
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 8518405),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 8518405),  # v1.5.0
     ],
     EthereumNetwork.TENET_TESTNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 885379),  # v1.3.0
@@ -5266,7 +5266,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 60386388),  # v1.3.0 eip155
         ("0xc329D02fd8CB2fc13aa919005aF46320794a8629", 57957636),  # v1.4.1 zksync
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 60385637),  # v1.4.1 canonical
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 71461864),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 71461864),  # v1.5.0
     ],
     EthereumNetwork.MANTLE_TESTNET: [
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 4404053),  # v1.3.0
@@ -5695,7 +5695,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
     ],
     EthereumNetwork.SEI_NETWORK: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 80546985),  # v1.4.1
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 163563232),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 163563232),  # v1.5.0
     ],
     EthereumNetwork.ZETACHAIN_MAINNET: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 3315623),  # v1.4.1
@@ -6202,7 +6202,7 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 4250411),  # v1.3.0
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 4250519),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 1724224),  # v1.4.1
-        # ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 6146579),  # v1.5.0
+        ("0x14F2982D601c9458F93bd70B218933A6f8165e7b", 6146579),  # v1.5.0
     ],
     EthereumNetwork.PAIX_DEVELOPMENT_NETWORK: [
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 179030),  # v1.4.1
