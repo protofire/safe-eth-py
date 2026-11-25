@@ -4823,6 +4823,14 @@ MASTER_COPIES: dict[EthereumNetwork, list[tuple[str, int, str]]] = {
             "1.4.1+L2",
         ),  # v1.4.1+L2
     ],
+    EthereumNetwork.TRON_SHASTA: [
+        ("0x1bdf92b7ad0aa881e811c540bde8600c3e2a41c8", 67180900, "1.4.1+L2"),  # SafeL2
+        ("0x48a430a9e259b1fa41408cef6103c56d8051ef36", 67180900, "1.4.1"),  # Safe
+    ],
+    EthereumNetwork.TRON_MAINNET: [
+        ("0x5c03b2637513d2ee57603d8aef67f6989b426c14", 85295904, "1.4.1+L2"),  # SafeL2
+        ("0x1619de3c122b610ef788a1bc13772a0c8506ed09", 85150799, "1.4.1"),  # Safe
+    ],
 }
 
 PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
@@ -6619,6 +6627,12 @@ PROXY_FACTORIES: dict[EthereumNetwork, list[tuple[str, int]]] = {
         ("0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC", 28414327),  # v1.3.0
         ("0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2", 28412659),  # v1.3.0
         ("0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", 26334017),  # v1.4.1
+    ],
+    EthereumNetwork.TRON_SHASTA: [
+        ("0xe010048abee39457ddaa556ed782732ca80ab39c", 67180900),  # v1.4.1
+    ],
+    EthereumNetwork.TRON_MAINNET: [
+        ("0x39235a65aed90f13a2bbec5c53f0d710cdbbc5d7", 79739958),  # v1.4.1
     ],
 }
 

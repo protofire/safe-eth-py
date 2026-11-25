@@ -41,14 +41,28 @@ class EthereumAddressField(serializers.Field):
         super().__init__(**kwargs)
 
     def to_representation(self, obj):
+        # Ensure addresses are always returned checksummed
+        if obj and not fast_is_checksum_address(obj):
+            try:
+                from eth_utils import to_checksum_address
+
+                return to_checksum_address(obj)
+            except Exception:
+                pass
         return obj
 
     def to_internal_value(self, data):
         # Check if address is valid
         try:
             if not fast_is_checksum_address(data):
-                raise ValueError
-            elif int(data, 16) == 0 and not self.allow_zero_address:
+                # Auto-convert to checksum instead of rejecting
+                try:
+                    from eth_utils import to_checksum_address
+
+                    data = to_checksum_address(data)
+                except Exception:
+                    raise ValueError
+            if int(data, 16) == 0 and not self.allow_zero_address:
                 raise ValidationError("0x0 address is not allowed")
             elif int(data, 16) == 1 and not self.allow_sentinel_address:
                 raise ValidationError("0x1 address is not allowed")
